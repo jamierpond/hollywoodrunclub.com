@@ -3,6 +3,9 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+
+const BLUR_PLACEHOLDER = 'data:image/webp;base64,UklGRuIAAABXRUJQVlA4INYAAAAwBQCdASogABIAPtFapU0oJSOiMBgIAQAaCWMAuzMhzjgyKoyU08nt2SG0udA9B29DwADv3NHwJlX9JCGUJczYY1f4f/+ccvUktWK509YlCn/7YBkokMiy674fjFSwaoIpFDn0FTNsWbIJI+DuywNsRYLoI4Ga64rrZzZuLxQoYzfBGpFrkTRV3gvM2vZVpJ5TlfXH/UW34HL/KASc9HRHkCM/tdBFJoiyp8jTibQnfOW46zkcb/jgpnMz7/oWkZCBXarg+prre77vLAY9jVVkQKwVuzAA';
 
 const MarqueeBanner = () => {
   const text = "HOLLYWOOD RUN CLUB • EVERY TUESDAY 6:30PM • ALL PACES WELCOME • ";
@@ -52,19 +55,54 @@ export default function Hero() {
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
+  const [loadState, setLoadState] = useState<'blur' | 'poster' | 'video'>('blur');
+
+  useEffect(() => {
+    // Load poster image
+    const img = new Image();
+    img.src = '/running-poster.webp';
+    img.onload = () => setLoadState('poster');
+  }, []);
+
+  const handleVideoCanPlay = () => {
+    setLoadState('video');
+  };
+
   return (
     <div className="relative min-h-[100svh] w-full overflow-hidden flex items-center justify-center">
       {/* Video Background with Parallax */}
       <motion.div className="absolute inset-0 z-0" style={{ y }}>
+        {/* Base64 blur placeholder - always rendered for instant load */}
+        <div
+          className={`absolute inset-0 transition-opacity duration-500 ${loadState !== 'blur' ? 'opacity-0' : 'opacity-100'}`}
+          style={{
+            backgroundImage: `url(${BLUR_PLACEHOLDER})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            filter: 'blur(20px)',
+            transform: 'scale(1.1)',
+          }}
+        />
+
+        {/* Poster image - loads after blur */}
+        <img
+          src="/running-poster.webp"
+          alt=""
+          className={`absolute inset-0 w-full h-full object-cover scale-110 grayscale contrast-125 brightness-110 transition-opacity duration-500 ${loadState === 'poster' ? 'opacity-100' : loadState === 'video' ? 'opacity-0' : 'opacity-0'}`}
+        />
+
+        {/* Video - loads last */}
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="h-full w-full object-cover scale-110 grayscale contrast-125 brightness-110"
+          onCanPlay={handleVideoCanPlay}
+          className={`h-full w-full object-cover scale-110 grayscale contrast-125 brightness-110 transition-opacity duration-500 ${loadState === 'video' ? 'opacity-100' : 'opacity-0'}`}
         >
           <source src="/running.webm" type="video/webm" />
         </video>
+
         {/* Light Overlay */}
         <div className="absolute inset-0 bg-white/60" />
       </motion.div>
