@@ -2,17 +2,17 @@ import { ImageResponse } from "next/og";
 
 export const OG_SIZE = { width: 1200, height: 630 };
 
-const INTER_FONT_URL =
-  "https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf";
+const GEIST_FONT_URL =
+  "https://raw.githubusercontent.com/vercel/geist-font/main/packages/next/dist/fonts/geist-sans/Geist-Black.ttf";
 
 export async function loadFont() {
-  return fetch(INTER_FONT_URL).then((res) => res.arrayBuffer());
+  return fetch(GEIST_FONT_URL).then((res) => res.arrayBuffer());
 }
 
 export function createOgResponse(element: React.ReactElement, fontData: ArrayBuffer) {
   return new ImageResponse(element, {
     ...OG_SIZE,
-    fonts: [{ name: "Inter", data: fontData, style: "normal", weight: 900 }],
+    fonts: [{ name: "Geist", data: fontData, style: "normal", weight: 900 }],
   });
 }
 
@@ -32,7 +32,7 @@ export function OgImage({ route }: { route?: RouteData | null }) {
         flexDirection: "column",
         justifyContent: "space-between",
         backgroundColor: "#000",
-        fontFamily: "Inter",
+        fontFamily: "Geist",
         padding: "60px",
       }}
     >
@@ -149,7 +149,6 @@ export function OgImage({ route }: { route?: RouteData | null }) {
             hollywoodrunclub.com
           </span>
         </div>
-      </div>
     </div>
   );
 }
