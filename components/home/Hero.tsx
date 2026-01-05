@@ -1,6 +1,9 @@
+'use client';
+
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 type Props = {
   videoPlaceholder: string;
@@ -47,20 +50,36 @@ export default function Hero({ videoPlaceholder }: Props) {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-5xl">
-        <h1 className="text-[clamp(3rem,10vw,8rem)] font-black text-black tracking-tighter leading-[0.9] mb-4">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="text-[clamp(3rem,10vw,8rem)] font-black text-black tracking-tighter leading-[0.9] mb-4"
+        >
           RUN THE <br />
           HOLLYWOOD HILLS
-        </h1>
-        <p className="text-[clamp(1rem,3vw,1.5rem)] font-medium text-zinc-800 max-w-xl mx-auto mt-6 mb-8 leading-relaxed">
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          className="text-[clamp(1rem,3vw,1.5rem)] font-medium text-zinc-800 max-w-xl mx-auto mt-6 mb-8 leading-relaxed"
+        >
           Community. Fitness. Fun. <br />
           Free and open to all. Every Tuesday.
-        </p>
-        <Link
-          href="#schedule"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-bold text-sm uppercase tracking-widest rounded-md hover:bg-zinc-800 transition-colors"
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
         >
-          View Schedule <ArrowRight className="w-4 h-4" />
-        </Link>
+          <Link
+            href="#schedule"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-bold text-sm uppercase tracking-widest rounded-md hover:bg-zinc-800 transition-colors"
+          >
+            View Schedule <ArrowRight className="w-4 h-4" />
+          </Link>
+        </motion.div>
       </div>
 
       {/* Marquee Banner */}
