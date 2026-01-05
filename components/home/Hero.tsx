@@ -12,6 +12,7 @@ type Props = {
 type RouteData = {
   distance: { miles: number };
   elevation_gain: { feet: number };
+  estimated_moving_time: { formatted: string };
 } | null;
 
 export default function Hero({ videoPlaceholder }: Props) {
@@ -99,9 +100,14 @@ export default function Hero({ videoPlaceholder }: Props) {
                   Miles
                 </span>
                 {route && (
-                  <span className="text-lg font-bold text-black/40 ml-4">
-                    {Math.round(route.elevation_gain.feet)} ft gain
-                  </span>
+                  <>
+                    <span className="text-lg font-bold text-black/40 ml-4">
+                      {Math.round(route.elevation_gain.feet)} ft gain
+                    </span>
+                    <span className="text-lg font-bold text-black/40 ml-4">
+                      {route.estimated_moving_time.formatted}
+                    </span>
+                  </>
                 )}
               </div>
             </div>
