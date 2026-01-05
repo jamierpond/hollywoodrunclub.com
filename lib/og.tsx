@@ -31,7 +31,7 @@ export function OgImage({ route }: { route?: RouteData | null }) {
         display: "flex",
         flexDirection: "column",
         backgroundColor: "#000",
-        fontFamily: "Geist",
+        fontFamily: "Inter",
         position: "relative",
       }}
     >
