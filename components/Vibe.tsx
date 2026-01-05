@@ -35,7 +35,7 @@ export default function Vibe() {
           className="aspect-[4/3] relative overflow-hidden"
         >
           <Image
-            src="/griffith.jpg"
+            src="/griffith.webp"
             alt="Griffith Park trails"
             fill
             className="object-cover"
