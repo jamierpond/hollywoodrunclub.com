@@ -8,6 +8,9 @@ import Footer from '@/components/Footer';
 import { VIDEO_BLUR_PLACEHOLDER } from '@/lib/constants';
 import { getRoute, formatDistance, formatElevation, type StravaRoute } from '@/lib/strava';
 
+export const dynamic = 'force-static';
+export const revalidate = 3600;
+
 async function fetchRoute(): Promise<StravaRoute | null> {
   const routeId = process.env.STRAVA_ROUTE_ID;
   const accessToken = process.env.STRAVA_ACCESS_TOKEN;
