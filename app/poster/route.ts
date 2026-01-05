@@ -1,4 +1,5 @@
 import { chromium } from "playwright";
+import QRCode from "qrcode";
 
 export const dynamic = "force-static";
 
@@ -9,7 +10,8 @@ const PLACE = "The Oaks Gourmet";
 const ADDR = "1915 N Bronson Ave, Los Angeles";
 const URL = "hollywoodrunclub.com";
 
-const html = `<!DOCTYPE html>
+function buildHtml(qrSvg: string) {
+  return `<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -114,6 +116,17 @@ const html = `<!DOCTYPE html>
       font-size: 14px;
       opacity: 0.75;
     }
+
+    .qr {
+      width: 120px;
+      height: 120px;
+      flex-shrink: 0;
+    }
+
+    .qr svg {
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 <body>
@@ -142,17 +155,24 @@ const html = `<!DOCTYPE html>
           <div class="label">INFO</div>
           <div class="value">${URL}</div>
         </div>
+        <div class="qr">${qrSvg}</div>
       </div>
     </div>
   </div>
 </body>
 </html>`;
+}
 
 export async function GET() {
+  const qrSvg = await QRCode.toString(`https://${URL}`, {
+    type: "svg",
+    margin: 0,
+    color: { dark: "#0a0a0a", light: "#ffffff00" },
+  });
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
-  await page.setContent(html, { waitUntil: "networkidle" });
+  await page.setContent(buildHtml(qrSvg), { waitUntil: "networkidle" });
 
   const pdf = await page.pdf({
     width: "11in",
