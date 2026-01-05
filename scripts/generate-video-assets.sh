@@ -6,7 +6,7 @@
 
 set -e
 
-INPUT="${1:-public/Griffith_Park_Trail_Run_in_Hollywood.mp4}"
+INPUT="${1:-public/running.mov}"
 OUTPUT_NAME="${2:-running}"
 PUBLIC_DIR="public"
 LIB_DIR="lib"
@@ -26,13 +26,12 @@ fi
 echo "Generating video assets from: $INPUT"
 
 # Compress video to webm (VP9) - optimized for background video
-# Settings tuned for 40% opacity overlay: lower quality is acceptable
 echo "1. Compressing video to webm..."
 ffmpeg -y -i "$INPUT" \
   -c:v libvpx-vp9 \
-  -b:v 150k \
-  -vf "scale=640:360" \
-  -crf 45 \
+  -b:v 400k \
+  -vf "scale=960:540" \
+  -crf 35 \
   -deadline good \
   -cpu-used 2 \
   -an \
