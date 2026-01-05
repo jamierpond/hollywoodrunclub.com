@@ -89,7 +89,7 @@ export default function Hero({ videoPlaceholder }: Props) {
             {/* Season Route */}
             <div className="flex-1 px-8 md:px-16 py-8 border-b sm:border-b-0 sm:border-r border-black/10">
               <p className="text-[10px] font-bold tracking-[0.2em] text-black/50 mb-2">
-                WINTER 2025 ROUTE
+                WINTER 2026 ROUTE
               </p>
               <div className="flex items-baseline gap-4">
                 <span className="text-5xl md:text-6xl font-black tracking-tight">
