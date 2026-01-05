@@ -1,4 +1,4 @@
-import { getRoute } from "../poster/strava";
+import { getRoute } from "@/lib/strava";
 
 export async function GET() {
   const routeId = process.env.STRAVA_ROUTE_ID;
