@@ -1,5 +1,8 @@
 import { getRoute } from "@/lib/strava";
 
+export const dynamic = 'force-static';
+export const revalidate = 3600;
+
 export async function GET() {
   const routeId = process.env.STRAVA_ROUTE_ID;
   const accessToken = process.env.STRAVA_ACCESS_TOKEN;

@@ -28,9 +28,10 @@ import {
 } from "@/lib/strava";
 
 export const dynamic = "force-static";
+export const revalidate = 3600;
 
-const imageBuffer = readFileSync(join(process.cwd(), "public/griffith.jpg"));
-const imageBase64 = `data:image/jpeg;base64,${imageBuffer.toString("base64")}`;
+const imageBuffer = readFileSync(join(process.cwd(), "public/griffith.webp"));
+const imageBase64 = `data:image/webp;base64,${imageBuffer.toString("base64")}`;
 
 const TITLE = "HOLLYWOOD RUN CLUB";
 const URL = "hollywoodrunclub.com";
