@@ -40,7 +40,7 @@ export default function Navbar() {
           </div>
           <div>
             <a
-              href="https://strava.com"
+              href="https://www.strava.com/routes/3443118030208002126"
               target="_blank"
               rel="noreferrer"
               className="bg-black text-white px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wider hover:bg-gray-800 transition-all flex items-center"
