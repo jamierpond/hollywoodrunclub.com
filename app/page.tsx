@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import Script from 'next/script';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import Marquee from '@/components/Marquee';
 import Schedule from '@/components/Schedule';
 import Vibe from '@/components/Vibe';
 import Footer from '@/components/Footer';
@@ -25,7 +24,6 @@ export default function Page() {
     <main className="min-h-screen bg-white text-gray-900 selection:bg-black selection:text-white font-sans">
       <Navbar />
       <Hero />
-      <Marquee />
       <Schedule />
       <Vibe />
       <Footer />
