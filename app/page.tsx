@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'The premier running community in Hollywood, CA. Weekly runs at Hollywood Reservoir and Runyon Canyon. All paces welcome. Join the movement.',
   openGraph: {
     title: 'Hollywood Run Club',
-    description: 'Tuesday Track. Saturday Long Runs. No dues, just vibes.',
+    description: 'Community. Fitness. Fun. Every Tuesday & Saturday.',
     url: 'https://hollywoodrunclub.com',
     siteName: 'Hollywood Run Club',
     locale: 'en_US',
@@ -103,8 +103,8 @@ const Hero = () => (
         HOLLYWOOD HILLS
       </h1>
       <p className="mt-6 text-xl sm:text-2xl font-medium text-gray-900 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-sm">
-        Not a networking event. Just running. <br />
-        Every Tuesday & Saturday. No egos.
+        Community. Fitness. Fun in the sun. <br />
+        Every Tuesday & Saturday.
       </p>
       <div className="flex flex-col sm:flex-row justify-center gap-4">
         <Link
@@ -181,14 +181,14 @@ const Vibe = () => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <div>
         <h2 className="text-5xl sm:text-7xl font-black mb-8 tracking-tighter uppercase leading-none">
-          More than <br /> just miles.
+          Run together. <br /> Grow together.
         </h2>
         <div className="space-y-6 text-gray-300 text-lg font-medium leading-relaxed">
           <p>
-            Hollywood Run Club was born out of a desire to connect the creative community of Los Angeles through sweat.
+            Hollywood Run Club is a community of runners exploring the best trails and hidden gems of the Hollywood Hills.
           </p>
           <p>
-            We run past the tourist traps, finding the quiet trails and hidden stairs that make this neighborhood iconic. Whether you are training for the LA Marathon or just clearing your head after a shoot, you have a spot here.
+            All paces welcome. Whether you're training for a marathon or just getting started, you'll find good people, great views, and sunshine. Come for the run, stay for the friends.
           </p>
         </div>
       </div>
