@@ -99,7 +99,7 @@ export default function Schedule() {
             className="px-8 md:px-16 py-16"
           >
             <p className="text-xs font-bold tracking-[0.3em] text-black/40 mb-6">
-              THE ROUTE
+              WINTER 2025 ROUTE
             </p>
             <h3 className="text-3xl font-black tracking-tight mb-8">
               Griffith Park Loop

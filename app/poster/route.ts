@@ -200,7 +200,7 @@ function buildHtml({ qrSvg, route }: PosterData) {
       <div class="hero-stat">
         <div class="hero-number">${route.distance ? (route.distance / 1609.34).toFixed(1) : "--"}</div>
         <div class="hero-unit">Miles</div>
-        <div class="hero-label">This Week's Route</div>
+        <div class="hero-label">Winter 2025 Route</div>
       </div>
       ` : `
       <div class="hero-stat">
