@@ -35,7 +35,7 @@ export default function Schedule() {
             </h4>
 
             <p className="text-gray-600 leading-relaxed mb-8">
-              We meet at The Oaks Gourmet, head up Bronson Canyon, climb to the Hollywood Sign, and loop back down through Griffith Park. All paces welcome - we regroup along the way. Finish with drinks on the patio.
+              We meet at The Oaks Gourmet, head up Bronson Canyon, loop through Griffith Park, and back down. All paces welcome - we regroup along the way. Finish with drinks on the patio.
             </p>
 
             <div className="border-t border-gray-100 pt-6">
