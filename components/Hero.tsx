@@ -4,8 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-
-const BLUR_PLACEHOLDER = 'data:image/webp;base64,UklGRuIAAABXRUJQVlA4INYAAAAwBQCdASogABIAPtFapU0oJSOiMBgIAQAaCWMAuzMhzjgyKoyU08nt2SG0udA9B29DwADv3NHwJlX9JCGUJczYY1f4f/+ccvUktWK509YlCn/7YBkokMiy674fjFSwaoIpFDn0FTNsWbIJI+DuywNsRYLoI4Ga64rrZzZuLxQoYzfBGpFrkTRV3gvM2vZVpJ5TlfXH/UW34HL/KASc9HRHkCM/tdBFJoiyp8jTibQnfOW46zkcb/jgpnMz7/oWkZCBXarg+prre77vLAY9jVVkQKwVuzAA';
+import { VIDEO_BLUR_PLACEHOLDER } from '@/lib/constants';
 
 const MarqueeBanner = () => {
   const text = "HOLLYWOOD RUN CLUB • EVERY TUESDAY 6:30PM • ALL PACES WELCOME • ";
