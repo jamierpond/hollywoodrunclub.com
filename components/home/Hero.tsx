@@ -1,21 +1,12 @@
-'use client';
-
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { VIDEO_BLUR_PLACEHOLDER } from '@/lib/constants';
+import HeroBackground from './HeroBackground';
 
-export default function Hero() {
-  const [loadState, setLoadState] = useState<'blur' | 'poster' | 'video'>('blur');
+type Props = {
+  videoPlaceholder: string;
+};
 
-  useEffect(() => {
-    const img = new Image();
-    img.src = '/running-poster.webp';
-    img.onload = () => setLoadState('poster');
-  }, []);
-
-  const handleVideoCanPlay = () => setLoadState('video');
-
+export default function Hero({ videoPlaceholder }: Props) {
   const text = "HOLLYWOOD RUN CLUB • EVERY TUESDAY 6:30PM • ALL PACES WELCOME • ";
 
   return (
@@ -31,62 +22,7 @@ export default function Hero() {
         justifyContent: 'center',
       }}
     >
-      {/* Background Layer */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-        {/* Blur placeholder */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: `url(${VIDEO_BLUR_PLACEHOLDER})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            filter: 'blur(20px)',
-            transform: 'scale(1.1)',
-            opacity: loadState === 'blur' ? 1 : 0,
-            transition: 'opacity 500ms',
-          }}
-        />
-        {/* Poster */}
-        <img
-          src="/running-poster.webp"
-          alt=""
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            transform: 'scale(1.1)',
-            filter: 'grayscale(100%) contrast(1.25) brightness(1.1)',
-            opacity: loadState === 'poster' ? 1 : 0,
-            transition: 'opacity 500ms',
-          }}
-        />
-        {/* Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          onCanPlay={handleVideoCanPlay}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            transform: 'scale(1.1)',
-            filter: 'grayscale(100%) contrast(1.25) brightness(1.1)',
-            opacity: loadState === 'video' ? 1 : 0,
-            transition: 'opacity 500ms',
-          }}
-        >
-          <source src="/running.webm" type="video/webm" />
-        </video>
-        {/* Overlay */}
-        <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(255,255,255,0.6)' }} />
-      </div>
+      <HeroBackground videoPlaceholder={videoPlaceholder} />
 
       {/* Content */}
       <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '0 1rem', maxWidth: '80rem' }}>

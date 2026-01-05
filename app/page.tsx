@@ -1,10 +1,11 @@
 import { Metadata } from 'next';
 import Script from 'next/script';
 import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
+import Hero from '@/components/home/Hero';
 import Schedule from '@/components/Schedule';
 import Vibe from '@/components/Vibe';
 import Footer from '@/components/Footer';
+import { VIDEO_BLUR_PLACEHOLDER } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Hollywood Run Club | Run the Hills',
@@ -23,7 +24,7 @@ export default function Page() {
   return (
     <main className="min-h-screen bg-white text-gray-900 selection:bg-black selection:text-white font-sans">
       <Navbar />
-      <Hero />
+      <Hero videoPlaceholder={VIDEO_BLUR_PLACEHOLDER} />
       <Schedule />
       <Vibe />
       <Footer />
