@@ -39,3 +39,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+public/Griffith_Park_Trail_Run_in_Hollywood.mp4
+public/running.mov

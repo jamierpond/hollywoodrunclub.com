@@ -78,7 +78,7 @@ const Hero = () => (
   // Changed to h-screen for maximum video impact
   <div className="relative h-screen w-full overflow-hidden flex items-center justify-center">
     {/* --- VIDEO BACKGROUND --- */}
-    <div className="absolute inset-0 -z-20">
+    <div className="absolute inset-0 z-0">
         <video
             autoPlay
             loop
