@@ -2,8 +2,18 @@
 
 import { motion } from 'framer-motion';
 import { MapPin, Clock, Calendar } from 'lucide-react';
+import {
+  formatDistance,
+  formatElevation,
+  formatDuration,
+  type StravaRoute,
+} from '@/lib/strava';
 
-export default function Schedule() {
+interface ScheduleProps {
+  route: StravaRoute | null;
+}
+
+export default function Schedule({ route }: ScheduleProps) {
   return (
     <section id="schedule" className="bg-white">
       {/* Big Schedule Header */}
@@ -112,11 +122,23 @@ export default function Schedule() {
               data-style="standard"
             />
 
-            <div className="mt-8 flex gap-8">
-              <div>
-                <p className="text-xs font-bold tracking-[0.2em] text-black/40 mb-1">PACE</p>
-                <p className="text-lg font-bold">All welcome</p>
-              </div>
+            <div className="mt-8 flex flex-wrap gap-6">
+              {route && (
+                <>
+                  <div>
+                    <p className="text-xs font-bold tracking-[0.2em] text-black/40 mb-1">DISTANCE</p>
+                    <p className="text-lg font-bold">{formatDistance(route.distance)}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold tracking-[0.2em] text-black/40 mb-1">ELEVATION</p>
+                    <p className="text-lg font-bold">{formatElevation(route.elevation_gain)}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold tracking-[0.2em] text-black/40 mb-1">EST. TIME</p>
+                    <p className="text-lg font-bold">{formatDuration(route.estimated_moving_time)}</p>
+                  </div>
+                </>
+              )}
               <div>
                 <p className="text-xs font-bold tracking-[0.2em] text-black/40 mb-1">VIBE</p>
                 <p className="text-lg font-bold">Social run</p>

@@ -25,7 +25,7 @@ import {
   formatPace,
   formatElevation,
   type StravaRoute,
-} from "./strava";
+} from "@/lib/strava";
 
 export const dynamic = "force-static";
 
