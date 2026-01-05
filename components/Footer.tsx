@@ -33,13 +33,10 @@ export default function Footer() {
               </p>
             </div>
             <div className="flex space-x-8 font-bold text-sm uppercase tracking-wider text-gray-900">
-              <a href="#" className="hover:text-gray-500 transition-colors">
-                Instagram
-              </a>
-              <a href="https://strava.com" target="_blank" rel="noreferrer" className="hover:text-gray-500 transition-colors">
+              <a href="https://www.strava.com/routes/3443118030208002126" target="_blank" rel="noreferrer" className="hover:text-gray-500 transition-colors">
                 Strava
               </a>
-              <a href="#" className="hover:text-gray-500 transition-colors">
+              <a href="mailto:jamie@hollywoodrunclub.com" className="hover:text-gray-500 transition-colors">
                 Contact
               </a>
             </div>
