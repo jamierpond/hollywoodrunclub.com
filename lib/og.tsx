@@ -30,35 +30,12 @@ export function OgImage({ route }: { route?: RouteData | null }) {
         height: "100%",
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-between",
         backgroundColor: "#000",
         fontFamily: "Inter",
-        position: "relative",
+        padding: "60px",
       }}
     >
-      {/* Background gradient */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: "linear-gradient(135deg, #1a1a1a 0%, #000 100%)",
-          display: "flex",
-        }}
-      />
-
-      {/* Content */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          height: "100%",
-          padding: "60px",
-          position: "relative",
-        }}
-      >
         {/* Top: Kicker */}
         <div
           style={{
