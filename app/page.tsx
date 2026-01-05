@@ -89,8 +89,7 @@ const Hero = () => (
             // CSS filters for that "gritty" look: grayscale and boosted contrast
             className="h-full w-full object-cover grayscale contrast-125 brightness-110"
         >
-            {/* Using a stock running video as placeholder. Replace with actual Hollywood footage. */}
-            <source src="https://videos.pexels.com/video-files/4923962/4923962-hd_1920_1080_30fps.mp4" type="video/mp4" />
+            <source src="/running.webm" type="video/webm" />
         </video>
         {/* Light Overlay to make black text readable over video */}
         <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px]"></div>
