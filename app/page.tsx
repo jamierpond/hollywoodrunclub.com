@@ -6,6 +6,7 @@ import Schedule from '@/components/Schedule';
 import Vibe from '@/components/Vibe';
 import Footer from '@/components/Footer';
 import { VIDEO_BLUR_PLACEHOLDER } from '@/lib/constants';
+import { getRoute, type StravaRoute } from './poster/strava';
 
 export const metadata: Metadata = {
   title: 'Hollywood Run Club | Run the Hills',
