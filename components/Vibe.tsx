@@ -96,9 +96,9 @@ export default function Vibe() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <div className="text-6xl font-black mb-4">02</div>
-            <h3 className="text-xl font-black mb-3 uppercase tracking-tight">No One Left Behind</h3>
+            <h3 className="text-xl font-black mb-3 uppercase tracking-tight">We&apos;ve Got Your Back</h3>
             <p className="text-black/60 leading-relaxed">
-              We look out for each other. Faster runners loop back. It&apos;s a community, not a competition.
+              We look out for each other. It&apos;s a community, not a competition.
             </p>
           </motion.div>
 
