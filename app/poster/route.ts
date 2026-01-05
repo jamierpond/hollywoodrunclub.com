@@ -271,7 +271,7 @@ export async function GET() {
 
   await browser.close();
 
-  return new Response(pdf, {
+  return new Response(new Uint8Array(pdf), {
     headers: {
       "Content-Type": "application/pdf",
       "Content-Disposition": "inline; filename=hollywood-run-club-poster.pdf",
