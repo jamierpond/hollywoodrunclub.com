@@ -4,7 +4,11 @@ export const runtime = "nodejs";
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-export default function AppleIcon() {
+export default async function AppleIcon() {
+  const interBlack = await fetch(
+    "https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf"
+  ).then((res) => res.arrayBuffer());
+
   return new ImageResponse(
     (
       <div
@@ -19,11 +23,12 @@ export default function AppleIcon() {
       >
         <span
           style={{
-            fontSize: "100px",
-            fontFamily: "system-ui, sans-serif",
+            fontSize: "105px",
+            fontFamily: "Inter",
             fontWeight: 900,
             color: "#fff",
-            letterSpacing: "-0.05em",
+            letterSpacing: "-0.06em",
+            marginTop: "-6px",
           }}
         >
           H
@@ -33,6 +38,14 @@ export default function AppleIcon() {
     {
       width: 180,
       height: 180,
+      fonts: [
+        {
+          name: "Inter",
+          data: interBlack,
+          style: "normal",
+          weight: 900,
+        },
+      ],
     }
   );
 }

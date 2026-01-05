@@ -4,7 +4,12 @@ export const runtime = "nodejs";
 export const size = { width: 256, height: 256 };
 export const contentType = "image/png";
 
-export default function Icon() {
+export default async function Icon() {
+  // Fetch Inter Black (900 weight)
+  const interBlack = await fetch(
+    "https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf"
+  ).then((res) => res.arrayBuffer());
+
   return new ImageResponse(
     (
       <div
@@ -20,11 +25,12 @@ export default function Icon() {
       >
         <span
           style={{
-            fontSize: "140px",
-            fontFamily: "system-ui, sans-serif",
+            fontSize: "150px",
+            fontFamily: "Inter",
             fontWeight: 900,
             color: "#fff",
-            letterSpacing: "-0.05em",
+            letterSpacing: "-0.06em",
+            marginTop: "-8px",
           }}
         >
           H
@@ -34,6 +40,14 @@ export default function Icon() {
     {
       width: 256,
       height: 256,
+      fonts: [
+        {
+          name: "Inter",
+          data: interBlack,
+          style: "normal",
+          weight: 900,
+        },
+      ],
     }
   );
 }
