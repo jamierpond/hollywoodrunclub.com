@@ -103,7 +103,7 @@ const Hero = () => (
         HOLLYWOOD HILLS
       </h1>
       <p className="mt-6 text-xl sm:text-2xl font-medium text-gray-900 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-sm">
-        Community. Fitness. Fun in the sun. <br />
+        Community. Fitness. Fun. <br />
         Free and open to all. Every Tuesday & Saturday.
       </p>
       <div className="flex flex-col sm:flex-row justify-center gap-4">
