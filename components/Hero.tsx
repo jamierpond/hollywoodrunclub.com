@@ -11,8 +11,8 @@ const MarqueeBanner = () => {
 
   return (
     <div
-      className="absolute bottom-0 left-0 right-0 bg-black z-20"
-      style={{ height: '56px', overflow: 'hidden' }}
+      className="bg-black z-20"
+      style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '56px', overflow: 'hidden' }}
     >
       <div
         className="flex animate-marquee"
@@ -54,7 +54,10 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative min-h-[100svh] w-full overflow-hidden flex items-center justify-center">
+    <div
+      className="relative w-full overflow-hidden flex items-center justify-center"
+      style={{ minHeight: '100svh', height: '100svh' }}
+    >
       {/* Video Background with Parallax */}
       <motion.div className="absolute inset-0 z-0" style={{ y }}>
         {/* Base64 blur placeholder - always rendered for instant load */}
