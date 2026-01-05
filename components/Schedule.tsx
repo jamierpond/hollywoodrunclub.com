@@ -31,11 +31,11 @@ export default function Schedule() {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block px-3 py-1 bg-black text-white rounded-full text-xs font-bold uppercase tracking-wide mb-6">
-              Sign Loop
+              Meet at The Oaks
             </span>
 
             <p className="text-gray-600 leading-relaxed mb-8">
-              A loop through the Hollywood Hills. We'll finish with drinks outside at The Oaks Gourmet.
+              We meet at The Oaks Gourmet, head up Bronson Canyon, climb to the Hollywood Sign, and loop back down through Griffith Park. All paces welcome - we regroup along the way. Finish with drinks on the patio.
             </p>
 
             <div className="border-t border-gray-100 pt-6">
