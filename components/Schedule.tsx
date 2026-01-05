@@ -79,8 +79,7 @@ export default function Schedule() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="grayscale"
-              />
+                              />
             </div>
 
             <p className="text-black/60 leading-relaxed">
