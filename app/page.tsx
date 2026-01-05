@@ -104,7 +104,7 @@ const Hero = () => (
       </h1>
       <p className="mt-6 text-xl sm:text-2xl font-medium text-gray-900 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-sm">
         Community. Fitness. Fun. <br />
-        Free and open to all. Every Tuesday & Saturday.
+        Free and open to all. Every Tuesday.
       </p>
       <Link
         href="#schedule"
@@ -145,7 +145,7 @@ const Schedule = () => (
         <h2 className="text-4xl font-black tracking-tighter text-black sm:text-5xl uppercase">Weekly Schedule</h2>
         <p className="mt-4 text-xl text-gray-600 font-medium">Consistency is key. Rain or shine.</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="max-w-xl">
         <RunCard
           day="TUESDAY"
           type="Speed / Hills"
@@ -153,14 +153,6 @@ const Schedule = () => (
           time="6:30 PM"
           location="The Oaks Gourmet"
           desc="3-5 miles through the Hollywood Hills. We'll finish with drinks outside at The Oaks Gourmet."
-        />
-        <RunCard
-          day="SATURDAY"
-          type="Long Run"
-          title="Coming Soon"
-          time="TBD"
-          location="Meeting place up for discussion"
-          desc="Weekend long runs coming soon. Stay tuned for details."
         />
       </div>
       <div className="mt-16">
