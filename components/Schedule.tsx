@@ -30,9 +30,9 @@ export default function Schedule() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-3 py-1 bg-black text-white rounded-full text-xs font-bold uppercase tracking-wide mb-6">
-              Meet at The Oaks
-            </span>
+            <h4 className="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4">
+              The Run
+            </h4>
 
             <p className="text-gray-600 leading-relaxed mb-8">
               We meet at The Oaks Gourmet, head up Bronson Canyon, climb to the Hollywood Sign, and loop back down through Griffith Park. All paces welcome - we regroup along the way. Finish with drinks on the patio.
