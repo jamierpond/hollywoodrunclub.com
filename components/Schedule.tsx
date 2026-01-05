@@ -1,91 +1,146 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin } from 'lucide-react';
+import { MapPin, Clock, Calendar } from 'lucide-react';
 
 export default function Schedule() {
   return (
-    <section id="schedule" className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl font-black tracking-tighter text-black sm:text-5xl uppercase">
-            Tuesday Run
-          </h2>
-          <p className="mt-4 text-xl text-gray-600 font-medium">Every week. Rain or shine.</p>
-          <p className="mt-2 text-3xl font-black tracking-tight">6:30 PM</p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Run Details */}
+    <section id="schedule" className="bg-white">
+      {/* Big Schedule Header */}
+      <div className="border-b border-black/10">
+        <div className="max-w-7xl mx-auto px-8 md:px-16 py-20">
           <motion.div
-            className="bg-white border border-gray-200 rounded-xl p-8"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h4 className="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4">
-              The Run
-            </h4>
-
-            <p className="text-gray-600 leading-relaxed mb-8">
-              We meet at The Oaks Gourmet, head up Bronson Canyon, loop through Griffith Park, and back down. All paces welcome - we regroup along the way. Finish with drinks on the patio.
+            <p className="text-xs font-bold tracking-[0.3em] text-black/40 mb-4">
+              WEEKLY RUN
             </p>
-
-            <div className="border-t border-gray-100 pt-6">
-              <h4 className="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4">
-                Meeting Point
-              </h4>
-              <div className="flex items-start gap-3 mb-4">
-                <MapPin className="w-5 h-5 text-gray-400 mt-0.5" />
-                <div>
-                  <p className="font-bold">The Oaks Gourmet</p>
-                  <p className="text-gray-600 text-sm">1915 N Bronson Ave, Los Angeles</p>
-                </div>
-              </div>
-              <div className="rounded-lg overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.595561190543!2d-118.3208345239384!3d34.10549987313694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf46b45bf735%3A0x536df54a8c6cac0d!2sThe%20Oaks%20Gourmet%20Market%20%26%20Cafe!5e0!3m2!1sen!2sus!4v1767589172556!5m2!1sen!2sus"
-                  width="100%"
-                  height="200"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-            </div>
+            <h2 className="text-[clamp(2.5rem,8vw,6rem)] font-black tracking-[-0.03em] leading-[0.9] uppercase">
+              Every
+              <br />
+              Tuesday
+            </h2>
           </motion.div>
 
-          {/* Route Map */}
+          {/* Time/Location Pills */}
           <motion.div
-            id="route"
-            className="bg-white border border-gray-200 rounded-xl p-8"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-wrap gap-4 mt-12"
+          >
+            <div className="flex items-center gap-3 bg-black text-white px-6 py-4 rounded-full">
+              <Clock className="w-5 h-5" />
+              <span className="font-bold text-lg">6:30 PM</span>
+            </div>
+            <div className="flex items-center gap-3 bg-black/5 px-6 py-4 rounded-full">
+              <Calendar className="w-5 h-5" />
+              <span className="font-bold text-lg">Rain or Shine</span>
+            </div>
+            <div className="flex items-center gap-3 bg-black/5 px-6 py-4 rounded-full">
+              <MapPin className="w-5 h-5" />
+              <span className="font-bold text-lg">Griffith Park</span>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Two Column Grid */}
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          {/* Left - Meeting Point */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="px-8 md:px-16 py-16 border-b lg:border-b-0 lg:border-r border-black/10"
           >
-            <h4 className="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4">
-              The Route
-            </h4>
+            <p className="text-xs font-bold tracking-[0.3em] text-black/40 mb-6">
+              MEETING POINT
+            </p>
+            <h3 className="text-3xl font-black tracking-tight mb-2">
+              The Oaks Gourmet
+            </h3>
+            <p className="text-black/60 mb-8">
+              1915 N Bronson Ave, Los Angeles
+            </p>
+
+            <div className="rounded-2xl overflow-hidden mb-8">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.595561190543!2d-118.3208345239384!3d34.10549987313694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf46b45bf735%3A0x536df54a8c6cac0d!2sThe%20Oaks%20Gourmet%20Market%20%26%20Cafe!5e0!3m2!1sen!2sus!4v1767589172556!5m2!1sen!2sus"
+                width="100%"
+                height="250"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="grayscale"
+              />
+            </div>
+
+            <p className="text-black/60 leading-relaxed">
+              We gather outside the cafe, head up Bronson Canyon into Griffith Park,
+              loop around, and return. Stick around after for drinks on the patio.
+            </p>
+          </motion.div>
+
+          {/* Right - The Route */}
+          <motion.div
+            id="route"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="px-8 md:px-16 py-16"
+          >
+            <p className="text-xs font-bold tracking-[0.3em] text-black/40 mb-6">
+              THE ROUTE
+            </p>
+            <h3 className="text-3xl font-black tracking-tight mb-8">
+              Griffith Park Loop
+            </h3>
+
             <div
-              className="strava-embed-placeholder"
+              className="strava-embed-placeholder rounded-2xl overflow-hidden"
               data-embed-type="route"
               data-embed-id="3443118030208002126"
               data-full-width="true"
               data-style="standard"
-              data-terrain="3d"
-              data-map-hash="11.98/34.12029/-118.30894"
-              data-from-embed="true"
             />
+
+            <div className="mt-8 flex gap-8">
+              <div>
+                <p className="text-xs font-bold tracking-[0.2em] text-black/40 mb-1">PACE</p>
+                <p className="text-lg font-bold">All welcome</p>
+              </div>
+              <div>
+                <p className="text-xs font-bold tracking-[0.2em] text-black/40 mb-1">VIBE</p>
+                <p className="text-lg font-bold">Social run</p>
+              </div>
+            </div>
           </motion.div>
+        </div>
+      </div>
+
+      {/* Bottom Banner */}
+      <div className="bg-black text-white">
+        <div className="max-w-7xl mx-auto px-8 md:px-16 py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <p className="text-2xl md:text-3xl font-black tracking-tight">
+            No signup. No fees. Just show up.
+          </p>
+          <a
+            href="https://www.strava.com/routes/3443118030208002126"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-white/90 transition-colors"
+          >
+            View on Strava
+          </a>
         </div>
       </div>
     </section>
