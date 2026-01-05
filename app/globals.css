@@ -60,3 +60,134 @@ body {
 .animation-delay-300 { animation-delay: 0.3s; }
 .animation-delay-400 { animation-delay: 0.4s; }
 .animation-delay-500 { animation-delay: 0.5s; }
+
+/* ========================================
+   Poster route: fixed-size artboard + print rules
+   ======================================== */
+
+/* Page sizing: tabloid 11x17. Change to A3: 297mm 420mm */
+@media print {
+  @page {
+    size: 11in 17in;
+    margin: 0;
+  }
+
+  html, body {
+    height: auto;
+  }
+
+  /* Force background colors/images in print/PDF */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide everything except the poster */
+  body > * {
+    display: none !important;
+  }
+  .poster-shell {
+    display: block !important;
+  }
+}
+
+/* Screen view: center artboard */
+.poster-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #f3f4f6;
+  padding: 24px;
+}
+
+/* Artboard */
+.poster-page {
+  position: relative;
+  width: 11in;
+  height: 17in;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+}
+
+/* Background */
+.poster-bg {
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.25) brightness(1.1);
+  transform: scale(1.08);
+}
+
+/* Overlay wash */
+.poster-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.66);
+}
+
+/* Content layout */
+.poster-content {
+  position: absolute;
+  inset: 0;
+  padding: 72px 72px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #0a0a0a;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.poster-kicker {
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  font-size: 14px;
+}
+
+.poster-title {
+  margin-top: 14px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  font-size: 92px;
+}
+
+.poster-sub {
+  margin-top: 20px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-size: 16px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.poster-sub .dot {
+  margin: 0 10px;
+}
+
+.poster-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  align-items: flex-end;
+}
+
+.poster-bottom .label {
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  font-size: 12px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.poster-bottom .value {
+  margin-top: 8px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-size: 28px;
+}
+
+.poster-bottom .meta {
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  opacity: 0.75;
+}
