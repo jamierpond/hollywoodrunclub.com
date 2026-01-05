@@ -106,22 +106,12 @@ const Hero = () => (
         Community. Fitness. Fun. <br />
         Free and open to all. Every Tuesday & Saturday.
       </p>
-      <div className="flex flex-col sm:flex-row justify-center gap-4">
-        <Link
-          href="#schedule"
-          className="px-8 py-4 bg-black text-white rounded-md font-bold text-lg uppercase tracking-widest hover:bg-gray-900 transition-all flex items-center justify-center"
-        >
-          View Schedule <ArrowRight />
-        </Link>
-        <a
-          href="https://strava.com"
-          target="_blank"
-          rel="noreferrer"
-          className="px-8 py-4 bg-white border-2 border-black text-black rounded-md font-bold text-lg uppercase tracking-widest hover:bg-gray-100 transition-all"
-        >
-          Join on Strava
-        </a>
-      </div>
+      <Link
+        href="#schedule"
+        className="px-8 py-4 bg-black text-white rounded-md font-bold text-lg uppercase tracking-widest hover:bg-gray-900 transition-all inline-flex items-center justify-center"
+      >
+        View Schedule <ArrowRight />
+      </Link>
     </div>
   </div>
 );
