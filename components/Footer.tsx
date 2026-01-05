@@ -13,6 +13,12 @@ export default function Footer() {
             <p className="mt-6 text-white/50 max-w-sm">
               Free weekly runs through Griffith Park. Every Tuesday at 6:30 PM.
             </p>
+            <a
+              href="/poster"
+              className="inline-block mt-6 text-sm font-bold uppercase tracking-wider hover:text-white/60 transition-colors"
+            >
+              Download Poster &rarr;
+            </a>
           </div>
 
           {/* Right */}
