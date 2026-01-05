@@ -2,6 +2,14 @@ import { chromium } from "playwright";
 import QRCode from "qrcode";
 import { readFileSync } from "fs";
 import { join } from "path";
+import {
+  getRoute,
+  formatDuration,
+  formatDistance,
+  formatPace,
+  formatElevation,
+  type StravaRoute,
+} from "./strava";
 
 export const dynamic = "force-static";
 
@@ -9,13 +17,22 @@ const imageBuffer = readFileSync(join(process.cwd(), "public/griffith.jpg"));
 const imageBase64 = `data:image/jpeg;base64,${imageBuffer.toString("base64")}`;
 
 const TITLE = "HOLLYWOOD RUN CLUB";
-const DAY = "TUESDAYS";
-const TIME = "6:30 PM";
+const URL = "hollywoodrunclub.com";
 const PLACE = "The Oaks Gourmet";
 const ADDR = "1915 N Bronson Ave, Los Angeles";
-const URL = "hollywoodrunclub.com";
 
-function buildHtml(qrSvg: string) {
+interface PosterData {
+  qrSvg: string;
+  route: StravaRoute | null;
+}
+
+function buildHtml({ qrSvg, route }: PosterData) {
+  const distance = route ? formatDistance(route.distance) : "--";
+  const duration = route ? formatDuration(route.estimated_moving_time) : "--";
+  const pace = route ? formatPace(route.distance, route.estimated_moving_time) : "--";
+  const elevation = route ? formatElevation(route.elevation_gain) : "--";
+  const routeName = route?.name || "";
+
   return `<!DOCTYPE html>
 <html>
 <head>
@@ -91,7 +108,41 @@ function buildHtml(qrSvg: string) {
       opacity: 0.85;
     }
 
-    .sub .dot { margin: 0 10px; }
+    .route-name {
+      margin-top: 24px;
+      font-weight: 600;
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+      padding: 32px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 8px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-label {
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      font-size: 11px;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    .stat-value {
+      margin-top: 8px;
+      font-weight: 900;
+      font-size: 32px;
+      letter-spacing: -0.02em;
+    }
 
     .bottom {
       display: flex;
@@ -142,22 +193,37 @@ function buildHtml(qrSvg: string) {
       <div class="top">
         <div class="kicker">RUN CLUB</div>
         <h1 class="title">${TITLE}</h1>
-        <div class="sub">
-          <span>${DAY}</span>
-          <span class="dot">•</span>
-          <span>${TIME}</span>
-          <span class="dot">•</span>
-          <span>ALL PACES WELCOME</span>
+        <div class="sub">TUESDAYS @ 6:30 PM</div>
+        ${route ? `
+        <div class="route-name">${routeName}</div>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-label">Distance</div>
+            <div class="stat-value">${distance}</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Est. Time</div>
+            <div class="stat-value">${duration}</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Pace</div>
+            <div class="stat-value">${pace}</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Elevation</div>
+            <div class="stat-value">${elevation}</div>
+          </div>
         </div>
+        ` : ""}
       </div>
       <div class="bottom">
         <div class="where">
-          <div class="label">MEET</div>
+          <div class="label">Meet</div>
           <div class="value">${PLACE}</div>
           <div class="meta">${ADDR}</div>
         </div>
         <div class="url">
-          <div class="label">INFO</div>
+          <div class="label">Info</div>
           <div class="value">${URL}</div>
         </div>
         <div class="qr">${qrSvg}</div>
@@ -174,10 +240,24 @@ export async function GET() {
     margin: 0,
     color: { dark: "#0a0a0a", light: "#ffffff00" },
   });
+
+  // Fetch Strava route if credentials are configured
+  let route: StravaRoute | null = null;
+  const routeId = process.env.STRAVA_ROUTE_ID;
+  const accessToken = process.env.STRAVA_ACCESS_TOKEN;
+
+  if (routeId && accessToken) {
+    try {
+      route = await getRoute(routeId, accessToken);
+    } catch (err) {
+      console.error("Failed to fetch Strava route:", err);
+    }
+  }
+
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
-  await page.setContent(buildHtml(qrSvg), { waitUntil: "networkidle" });
+  await page.setContent(buildHtml({ qrSvg, route }), { waitUntil: "networkidle" });
 
   const pdf = await page.pdf({
     width: "11in",
