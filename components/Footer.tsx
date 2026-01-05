@@ -24,23 +24,38 @@ export default function Footer() {
 
       {/* Footer Bottom */}
       <div className="py-12 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-8 md:mb-0 text-center md:text-left">
-            <span className="font-black text-3xl tracking-tighter uppercase">HRC.</span>
-            <p className="text-sm font-bold text-gray-500 mt-2 uppercase tracking-wider">
-              &copy; {new Date().getFullYear()} Hollywood Run Club.
-            </p>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-8 md:mb-0 text-center md:text-left">
+              <span className="font-black text-3xl tracking-tighter uppercase">HRC.</span>
+              <p className="text-sm font-bold text-gray-500 mt-2 uppercase tracking-wider">
+                &copy; {new Date().getFullYear()} Hollywood Run Club.
+              </p>
+            </div>
+            <div className="flex space-x-8 font-bold text-sm uppercase tracking-wider text-gray-900">
+              <a href="#" className="hover:text-gray-500 transition-colors">
+                Instagram
+              </a>
+              <a href="https://strava.com" target="_blank" rel="noreferrer" className="hover:text-gray-500 transition-colors">
+                Strava
+              </a>
+              <a href="#" className="hover:text-gray-500 transition-colors">
+                Contact
+              </a>
+            </div>
           </div>
-          <div className="flex space-x-8 font-bold text-sm uppercase tracking-wider text-gray-900">
-            <a href="#" className="hover:text-gray-500 transition-colors">
-              Instagram
-            </a>
-            <a href="https://strava.com" target="_blank" rel="noreferrer" className="hover:text-gray-500 transition-colors">
-              Strava
-            </a>
-            <a href="#" className="hover:text-gray-500 transition-colors">
-              Contact
-            </a>
+          <div className="mt-8 pt-8 border-t border-gray-100 text-center">
+            <p className="text-sm text-gray-400">
+              Hero video by{' '}
+              <a
+                href="https://www.youtube.com/@sam_metal"
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-600 hover:text-black transition-colors"
+              >
+                Samuel Hartman
+              </a>
+            </p>
           </div>
         </div>
       </div>
