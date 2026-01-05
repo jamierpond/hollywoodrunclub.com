@@ -55,7 +55,6 @@ const Navbar = () => (
         </div>
         <div className="hidden md:flex space-x-8 font-bold text-sm uppercase tracking-wider">
           <Link href="#schedule" className="text-gray-900 hover:text-gray-500 transition-colors">Schedule</Link>
-          <Link href="#routes" className="text-gray-900 hover:text-gray-500 transition-colors">Routes</Link>
           <Link href="#merch" className="text-gray-900 hover:text-gray-500 transition-colors">Shop</Link>
         </div>
         <div>
