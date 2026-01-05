@@ -35,7 +35,7 @@ export default function Schedule() {
             </span>
 
             <p className="text-gray-600 leading-relaxed mb-8">
-              3-5 miles through the Hollywood Hills. We'll finish with drinks outside at The Oaks Gourmet.
+              A loop through the Hollywood Hills. We'll finish with drinks outside at The Oaks Gourmet.
             </p>
 
             <div className="border-t border-gray-100 pt-6">
