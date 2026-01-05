@@ -45,6 +45,7 @@ interface PosterData {
 function buildHtml({ qrSvg, route }: PosterData) {
   const distance = route ? formatDistance(route.distance) : "--";
   const elevation = route ? formatElevation(route.elevation_gain) : "--";
+  const time = route ? formatDuration(route.estimated_moving_time) : "--";
 
   return `<!DOCTYPE html>
 <html>
@@ -277,6 +278,10 @@ function buildHtml({ qrSvg, route }: PosterData) {
         </div>
 
         ${route ? `
+        <div class="stat-pill">
+          <div class="footer-label">Est. Time</div>
+          <div class="footer-value">${time}</div>
+        </div>
         <div class="stat-pill">
           <div class="footer-label">Elevation</div>
           <div class="footer-value">${elevation}</div>
