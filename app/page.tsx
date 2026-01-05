@@ -113,12 +113,14 @@ const Hero = () => (
         >
           View Schedule <ArrowRight />
         </Link>
-        <Link
-          href="#routes"
+        <a
+          href="https://strava.com"
+          target="_blank"
+          rel="noreferrer"
           className="px-8 py-4 bg-white border-2 border-black text-black rounded-md font-bold text-lg uppercase tracking-widest hover:bg-gray-100 transition-all"
         >
-          See Routes
-        </Link>
+          Join on Strava
+        </a>
       </div>
     </div>
   </div>
