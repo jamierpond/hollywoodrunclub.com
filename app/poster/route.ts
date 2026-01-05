@@ -1,5 +1,7 @@
 import { chromium } from "playwright-core";
 import chromiumBinary from "@sparticuz/chromium";
+
+const isVercel = process.env.VERCEL === "1";
 import QRCode from "qrcode";
 import { readFileSync } from "fs";
 import { join } from "path";
@@ -258,11 +260,15 @@ export async function GET() {
     }
   }
 
-  const browser = await chromium.launch({
-    args: chromiumBinary.args,
-    executablePath: await chromiumBinary.executablePath(),
-    headless: true,
-  });
+  const browser = await chromium.launch(
+    isVercel
+      ? {
+          args: chromiumBinary.args,
+          executablePath: await chromiumBinary.executablePath(),
+          headless: true,
+        }
+      : { channel: "chrome", headless: true }
+  );
   const page = await browser.newPage();
 
   await page.setContent(buildHtml({ qrSvg, route }), { waitUntil: "networkidle" });
