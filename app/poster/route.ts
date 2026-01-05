@@ -1,7 +1,12 @@
 import { chromium } from "playwright";
 import QRCode from "qrcode";
+import { readFileSync } from "fs";
+import { join } from "path";
 
 export const dynamic = "force-static";
+
+const imageBuffer = readFileSync(join(process.cwd(), "public/griffith.jpg"));
+const imageBase64 = `data:image/jpeg;base64,${imageBuffer.toString("base64")}`;
 
 const TITLE = "HOLLYWOOD RUN CLUB";
 const DAY = "TUESDAYS";
@@ -131,7 +136,7 @@ function buildHtml(qrSvg: string) {
 </head>
 <body>
   <div class="poster">
-    <img class="bg" src="https://hollywoodrunclub.com/running-poster.webp" alt="">
+    <img class="bg" src="${imageBase64}" alt="">
     <div class="overlay"></div>
     <div class="content">
       <div class="top">
