@@ -13,6 +13,7 @@ type RouteData = {
   distance: { miles: number };
   elevation_gain: { feet: number };
   estimated_moving_time: { formatted: string };
+  pace: { formatted: string };
 } | null;
 
 export default function Hero({ videoPlaceholder }: Props) {
@@ -92,22 +93,20 @@ export default function Hero({ videoPlaceholder }: Props) {
               <p className="text-[10px] font-bold tracking-[0.2em] text-black/50 mb-2">
                 WINTER 2026 ROUTE
               </p>
-              <div className="flex items-baseline gap-4">
-                <span className="text-5xl md:text-6xl font-black tracking-tight">
-                  {route ? route.distance.miles.toFixed(1) : '---'}
-                </span>
-                <span className="text-lg font-bold text-black/50 uppercase tracking-wider">
-                  Miles
-                </span>
+              <div className="flex items-baseline gap-4 flex-wrap">
+                <div className="flex items-baseline gap-4">
+                  <span className="text-5xl md:text-6xl font-black tracking-tight">
+                    {route ? route.distance.miles.toFixed(1) : '---'}
+                  </span>
+                  <span className="text-lg font-bold text-black/50 uppercase tracking-wider">
+                    Miles
+                  </span>
+                </div>
                 {route && (
-                  <>
-                    <span className="text-lg font-bold text-black/40 ml-4">
-                      {Math.round(route.elevation_gain.feet)} ft gain
-                    </span>
-                    <span className="text-lg font-bold text-black/40 ml-4">
-                      {route.estimated_moving_time.formatted}
-                    </span>
-                  </>
+                  <div className="flex items-baseline gap-6 text-lg font-bold text-black/40">
+                    <span className="whitespace-nowrap">{Math.round(route.elevation_gain.feet)} ft</span>
+                    <span className="whitespace-nowrap">{route.estimated_moving_time.formatted} ({route.pace.formatted})</span>
+                  </div>
                 )}
               </div>
             </div>

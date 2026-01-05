@@ -185,9 +185,9 @@ function buildHtml({ qrSvg, route }: PosterData) {
       color: #0a0a0a;
       padding: 48px 64px;
       display: grid;
-      grid-template-columns: 1fr 1fr auto auto;
-      gap: 48px;
-      align-items: start;
+      grid-template-columns: 1fr 1fr auto auto auto;
+      gap: 32px;
+      align-items: center;
     }
 
     .footer-block {}
