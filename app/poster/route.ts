@@ -28,10 +28,7 @@ interface PosterData {
 
 function buildHtml({ qrSvg, route }: PosterData) {
   const distance = route ? formatDistance(route.distance) : "--";
-  const duration = route ? formatDuration(route.estimated_moving_time) : "--";
-  const pace = route ? formatPace(route.distance, route.estimated_moving_time) : "--";
   const elevation = route ? formatElevation(route.elevation_gain) : "--";
-  const routeName = route?.name || "";
 
   return `<!DOCTYPE html>
 <html>
@@ -40,13 +37,8 @@ function buildHtml({ qrSvg, route }: PosterData) {
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    @font-face {
-      font-family: 'Geist';
-      src: local('Geist'), local('system-ui');
-    }
-
     body {
-      font-family: 'Geist', system-ui, -apple-system, sans-serif;
+      font-family: system-ui, -apple-system, sans-serif;
       width: 11in;
       height: 17in;
     }
@@ -56,7 +48,7 @@ function buildHtml({ qrSvg, route }: PosterData) {
       width: 11in;
       height: 17in;
       overflow: hidden;
-      background: white;
+      background: #0a0a0a;
     }
 
     .bg {
@@ -65,118 +57,128 @@ function buildHtml({ qrSvg, route }: PosterData) {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: grayscale(100%) contrast(1.25) brightness(1.1);
-      transform: scale(1.08);
-    }
-
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(255,255,255,0.66);
+      opacity: 0.4;
     }
 
     .content {
       position: absolute;
       inset: 0;
-      padding: 72px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      color: #0a0a0a;
+      color: #fff;
+    }
+
+    /* Top section */
+    .header {
+      padding: 64px 64px 48px;
     }
 
     .kicker {
-      font-weight: 800;
-      letter-spacing: 0.22em;
-      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      font-size: 13px;
+      opacity: 0.7;
     }
 
     .title {
-      margin-top: 14px;
+      margin-top: 16px;
       font-weight: 900;
-      letter-spacing: -0.04em;
-      line-height: 0.92;
-      font-size: 92px;
-    }
-
-    .sub {
-      margin-top: 20px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      font-size: 16px;
+      letter-spacing: -0.03em;
+      line-height: 0.9;
+      font-size: 108px;
       text-transform: uppercase;
-      opacity: 0.85;
     }
 
-    .route-name {
-      margin-top: 24px;
-      font-weight: 600;
-      font-size: 20px;
-      opacity: 0.9;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 48px;
-      padding: 32px;
-      background: rgba(255,255,255,0.5);
-      border-radius: 8px;
-    }
-
-    .stat-item {
+    /* Hero stat - distance as the main visual */
+    .hero-stat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
     }
 
-    .stat-label {
-      font-weight: 800;
-      letter-spacing: 0.22em;
-      font-size: 11px;
-      text-transform: uppercase;
-      opacity: 0.7;
-    }
-
-    .stat-value {
-      margin-top: 8px;
+    .hero-number {
       font-weight: 900;
-      font-size: 32px;
-      letter-spacing: -0.02em;
+      font-size: 220px;
+      letter-spacing: -0.04em;
+      line-height: 0.85;
     }
 
-    .bottom {
-      display: flex;
-      justify-content: space-between;
-      gap: 48px;
-      align-items: flex-end;
-    }
-
-    .label {
+    .hero-unit {
       font-weight: 800;
-      letter-spacing: 0.22em;
-      font-size: 12px;
+      font-size: 42px;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      opacity: 0.7;
-    }
-
-    .value {
+      opacity: 0.6;
       margin-top: 8px;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      font-size: 28px;
     }
 
-    .meta {
-      margin-top: 6px;
+    .hero-label {
+      margin-top: 32px;
       font-weight: 600;
-      font-size: 14px;
-      opacity: 0.75;
+      font-size: 16px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    /* Bottom info bar */
+    .footer {
+      background: #fff;
+      color: #0a0a0a;
+      padding: 48px 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr auto auto;
+      gap: 48px;
+      align-items: end;
+    }
+
+    .footer-block {}
+
+    .footer-label {
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      font-size: 10px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 8px;
+    }
+
+    .footer-value {
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-meta {
+      font-weight: 500;
+      font-size: 13px;
+      opacity: 0.6;
+      margin-top: 4px;
+    }
+
+    .stat-pill {
+      background: #0a0a0a;
+      color: #fff;
+      padding: 16px 28px;
+      border-radius: 100px;
+      text-align: center;
+    }
+
+    .stat-pill .footer-label {
+      color: #fff;
+      opacity: 0.6;
+    }
+
+    .stat-pill .footer-value {
+      color: #fff;
     }
 
     .qr {
-      width: 120px;
-      height: 120px;
-      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
     }
 
     .qr svg {
@@ -188,44 +190,45 @@ function buildHtml({ qrSvg, route }: PosterData) {
 <body>
   <div class="poster">
     <img class="bg" src="${imageBase64}" alt="">
-    <div class="overlay"></div>
     <div class="content">
-      <div class="top">
-        <div class="kicker">RUN CLUB</div>
-        <h1 class="title">${TITLE}</h1>
-        <div class="sub">TUESDAYS @ 6:30 PM</div>
+      <div class="header">
+        <div class="kicker">EVERY TUESDAY / 6:30 PM</div>
+        <h1 class="title">Hollywood<br>Run Club</h1>
+      </div>
+
+      ${route ? `
+      <div class="hero-stat">
+        <div class="hero-number">${route.distance ? (route.distance / 1609.34).toFixed(1) : "--"}</div>
+        <div class="hero-unit">Miles</div>
+        <div class="hero-label">This Week's Route</div>
+      </div>
+      ` : `
+      <div class="hero-stat">
+        <div class="hero-number">?</div>
+        <div class="hero-unit">Miles</div>
+        <div class="hero-label">Route TBD</div>
+      </div>
+      `}
+
+      <div class="footer">
+        <div class="footer-block">
+          <div class="footer-label">Meet At</div>
+          <div class="footer-value">${PLACE}</div>
+          <div class="footer-meta">${ADDR}</div>
+        </div>
+
+        <div class="footer-block">
+          <div class="footer-label">Info</div>
+          <div class="footer-value">${URL}</div>
+        </div>
+
         ${route ? `
-        <div class="route-name">${routeName}</div>
-        <div class="stats">
-          <div class="stat-item">
-            <div class="stat-label">Distance</div>
-            <div class="stat-value">${distance}</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">Est. Time</div>
-            <div class="stat-value">${duration}</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">Pace</div>
-            <div class="stat-value">${pace}</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">Elevation</div>
-            <div class="stat-value">${elevation}</div>
-          </div>
+        <div class="stat-pill">
+          <div class="footer-label">Elevation</div>
+          <div class="footer-value">${elevation}</div>
         </div>
         ` : ""}
-      </div>
-      <div class="bottom">
-        <div class="where">
-          <div class="label">Meet</div>
-          <div class="value">${PLACE}</div>
-          <div class="meta">${ADDR}</div>
-        </div>
-        <div class="url">
-          <div class="label">Info</div>
-          <div class="value">${URL}</div>
-        </div>
+
         <div class="qr">${qrSvg}</div>
       </div>
     </div>
