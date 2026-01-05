@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Script from 'next/script';
 
 // --- SEO METADATA (Server Side) ---
 export const metadata: Metadata = {
@@ -171,6 +172,20 @@ const Schedule = () => (
           location="Meeting place up for discussion"
           desc="Weekend long runs coming soon. Stay tuned for details."
         />
+      </div>
+      <div className="mt-16">
+        <h3 className="text-2xl font-black tracking-tighter text-black uppercase mb-6">Tuesday Route</h3>
+        <div
+          className="strava-embed-placeholder"
+          data-embed-type="route"
+          data-embed-id="3443118030208002126"
+          data-full-width="true"
+          data-style="standard"
+          data-terrain="3d"
+          data-map-hash="11.98/34.12029/-118.30894"
+          data-from-embed="true"
+        />
+        <Script src="https://strava-embeds.com/embed.js" strategy="lazyOnload" />
       </div>
     </div>
   </section>
