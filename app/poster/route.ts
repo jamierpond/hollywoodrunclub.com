@@ -27,7 +27,7 @@ import {
   type StravaRoute,
 } from "./strava";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 
 const imageBuffer = readFileSync(join(process.cwd(), "public/griffith.jpg"));
 const imageBase64 = `data:image/jpeg;base64,${imageBuffer.toString("base64")}`;
