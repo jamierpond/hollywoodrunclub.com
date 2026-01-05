@@ -53,7 +53,7 @@ export default function Hero() {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+    <div className="relative h-[85vh] sm:h-screen w-full overflow-hidden flex items-center justify-center">
       {/* Video Background with Parallax */}
       <motion.div className="absolute inset-0 z-0" style={{ y }}>
         <video
@@ -71,11 +71,11 @@ export default function Hero() {
 
       {/* Content */}
       <motion.div
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center pt-20"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center pt-16 sm:pt-20"
         style={{ opacity }}
       >
         <motion.h1
-          className="text-6xl sm:text-8xl font-extrabold text-black tracking-tighter mb-6 leading-[0.9]"
+          className="text-5xl sm:text-6xl lg:text-8xl font-extrabold text-black tracking-tighter mb-4 sm:mb-6 leading-[0.9]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -84,7 +84,7 @@ export default function Hero() {
           HOLLYWOOD HILLS
         </motion.h1>
         <motion.p
-          className="mt-6 text-xl sm:text-2xl font-medium text-gray-900 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="mt-4 sm:mt-6 text-base sm:text-xl lg:text-2xl font-medium text-gray-900 max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -99,9 +99,9 @@ export default function Hero() {
         >
           <Link
             href="#schedule"
-            className="px-8 py-4 bg-black text-white rounded-md font-bold text-lg uppercase tracking-widest hover:bg-gray-900 transition-all inline-flex items-center justify-center gap-2"
+            className="px-6 py-3 sm:px-8 sm:py-4 bg-black text-white rounded-md font-bold text-sm sm:text-lg uppercase tracking-widest hover:bg-gray-900 transition-all inline-flex items-center justify-center gap-2"
           >
-            View Schedule <ArrowRight className="w-5 h-5" />
+            View Schedule <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </Link>
         </motion.div>
       </motion.div>
