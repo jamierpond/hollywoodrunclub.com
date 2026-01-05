@@ -16,6 +16,20 @@ export const metadata: Metadata = {
   title: "Hollywood Run Club",
   description: "Free weekly runs through Griffith Park. Every Tuesday at 6:30 PM.",
   applicationName: "Hollywood Run Club",
+  metadataBase: new URL("https://hollywoodrunclub.com"),
+  openGraph: {
+    title: "Hollywood Run Club",
+    description: "Free weekly runs through Griffith Park. Every Tuesday at 6:30 PM.",
+    url: "https://hollywoodrunclub.com",
+    siteName: "Hollywood Run Club",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hollywood Run Club",
+    description: "Free weekly runs through Griffith Park. Every Tuesday at 6:30 PM.",
+  },
   appleWebApp: {
     title: "Hollywood Run Club",
     capable: true,
