@@ -1,109 +1,117 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Vibe() {
   return (
-    <section id="vibe" className="py-24 bg-black text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="vibe" className="bg-zinc-100">
+      {/* Header */}
+      <div className="max-w-7xl mx-auto px-8 md:px-16 py-20">
         <motion.div
-          className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-black tracking-tighter sm:text-5xl uppercase">
-            The Vibe
+          <p className="text-xs font-bold tracking-[0.3em] text-black/40 mb-4">
+            THE COMMUNITY
+          </p>
+          <h2 className="text-[clamp(2.5rem,8vw,6rem)] font-black tracking-[-0.03em] leading-[0.9] uppercase max-w-4xl">
+            Run Together.
+            <br />
+            Grow Together.
           </h2>
         </motion.div>
+      </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
-          {/* Large Text Block */}
+      {/* Image Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="aspect-[4/3] relative overflow-hidden"
+        >
+          <Image
+            src="/griffith.jpg"
+            alt="Griffith Park trails"
+            fill
+            className="object-cover"
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="aspect-[4/3] relative overflow-hidden"
+        >
+          <Image
+            src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=800&auto=format&fit=crop"
+            alt="Runners"
+            fill
+            className="object-cover grayscale"
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="aspect-[4/3] relative overflow-hidden"
+        >
+          <Image
+            src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=800&auto=format&fit=crop"
+            alt="Hollywood Hills"
+            fill
+            className="object-cover"
+          />
+        </motion.div>
+      </div>
+
+      {/* Values Grid */}
+      <div className="max-w-7xl mx-auto px-8 md:px-16 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           <motion.div
-            className="col-span-2 row-span-2 bg-white text-black rounded-xl p-8 flex flex-col justify-center"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-4xl sm:text-5xl font-black tracking-tighter uppercase leading-none mb-4">
-              Run together. <br /> Grow together.
-            </h3>
-            <p className="text-gray-600 text-lg">
-              Hollywood Run Club is a community of runners exploring the best trails and hidden gems of the Hollywood Hills.
+            <div className="text-6xl font-black mb-4">01</div>
+            <h3 className="text-xl font-black mb-3 uppercase tracking-tight">All Paces Welcome</h3>
+            <p className="text-black/60 leading-relaxed">
+              Whether you&apos;re training for a marathon or just starting out, you belong here. We regroup throughout the run.
             </p>
           </motion.div>
 
-          {/* Image 1 */}
           <motion.div
-            className="col-span-1 row-span-1 rounded-xl overflow-hidden"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=800&auto=format&fit=crop"
-              alt="Runners"
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-            />
-          </motion.div>
-
-          {/* Image 2 */}
-          <motion.div
-            className="col-span-1 row-span-1 rounded-xl overflow-hidden"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <img
-              src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?q=80&w=800&auto=format&fit=crop"
-              alt="Running trail"
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-            />
-          </motion.div>
-
-          {/* Small Text Block */}
-          <motion.div
-            className="col-span-1 row-span-1 bg-gray-900 rounded-xl p-6 flex items-center justify-center"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <p className="text-xl font-black uppercase tracking-tight text-center">
-              No one left behind.
+            <div className="text-6xl font-black mb-4">02</div>
+            <h3 className="text-xl font-black mb-3 uppercase tracking-tight">We&apos;ve Got Your Back</h3>
+            <p className="text-black/60 leading-relaxed">
+              We look out for each other. It&apos;s a community, not a competition.
             </p>
           </motion.div>
 
-          {/* Image 3 */}
           <motion.div
-            className="col-span-1 row-span-1 rounded-xl overflow-hidden"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=800&auto=format&fit=crop"
-              alt="Hollywood Hills"
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-            />
-          </motion.div>
-
-          {/* All Paces Block */}
-          <motion.div
-            className="col-span-2 row-span-1 bg-white text-black rounded-xl p-6 flex items-center justify-center"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            <p className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-center">
-              All paces welcome.
+            <div className="text-6xl font-black mb-4">03</div>
+            <h3 className="text-xl font-black mb-3 uppercase tracking-tight">Free Forever</h3>
+            <p className="text-black/60 leading-relaxed">
+              No signup, no fees, no app required. Just show up at the meeting point and run with us.
             </p>
           </motion.div>
         </div>
