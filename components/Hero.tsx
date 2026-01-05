@@ -71,6 +71,8 @@ export default function Hero() {
           playsInline
           onCanPlay={handleVideoCanPlay}
           style={{
+            position: 'absolute',
+            inset: 0,
             width: '100%',
             height: '100%',
             objectFit: 'cover',
