@@ -185,9 +185,14 @@ function buildHtml({ qrSvg, route }: PosterData) {
       color: #0a0a0a;
       padding: 48px 64px;
       display: grid;
-      grid-template-columns: 1fr 1fr auto auto auto;
+      grid-template-columns: 1fr 1fr auto auto;
       gap: 32px;
       align-items: center;
+    }
+
+    .stat-pills {
+      display: flex;
+      gap: 16px;
     }
 
     .footer-block {}
@@ -278,13 +283,15 @@ function buildHtml({ qrSvg, route }: PosterData) {
         </div>
 
         ${route ? `
-        <div class="stat-pill">
-          <div class="footer-label">Est. Time</div>
-          <div class="footer-value">${time}</div>
-        </div>
-        <div class="stat-pill">
-          <div class="footer-label">Elevation</div>
-          <div class="footer-value">${elevation}</div>
+        <div class="stat-pills">
+          <div class="stat-pill">
+            <div class="footer-label">Est. Time</div>
+            <div class="footer-value">${time}</div>
+          </div>
+          <div class="stat-pill">
+            <div class="footer-label">Elevation</div>
+            <div class="footer-value">${elevation}</div>
+          </div>
         </div>
         ` : ""}
 
