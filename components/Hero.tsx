@@ -53,7 +53,7 @@ export default function Hero() {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <div className="relative h-[85vh] sm:h-screen w-full overflow-hidden flex items-center justify-center">
+    <div className="relative min-h-[100svh] w-full overflow-hidden flex items-center justify-center">
       {/* Video Background with Parallax */}
       <motion.div className="absolute inset-0 z-0" style={{ y }}>
         <video
