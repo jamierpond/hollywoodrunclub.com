@@ -1,4 +1,5 @@
-import { chromium } from "playwright";
+import { chromium } from "playwright-core";
+import chromiumBinary from "@sparticuz/chromium";
 import QRCode from "qrcode";
 import { readFileSync } from "fs";
 import { join } from "path";
@@ -257,7 +258,11 @@ export async function GET() {
     }
   }
 
-  const browser = await chromium.launch();
+  const browser = await chromium.launch({
+    args: chromiumBinary.args,
+    executablePath: await chromiumBinary.executablePath(),
+    headless: true,
+  });
   const page = await browser.newPage();
 
   await page.setContent(buildHtml({ qrSvg, route }), { waitUntil: "networkidle" });
