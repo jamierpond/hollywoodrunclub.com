@@ -10,9 +10,12 @@ export default function Hero({ videoPlaceholder }: Props) {
   const text = "HOLLYWOOD RUN CLUB • EVERY TUESDAY 6:30PM • ALL PACES WELCOME • ";
 
   return (
-    <section className="relative h-svh min-h-svh w-full overflow-hidden flex items-center justify-center">
+    <section
+      style={{ height: '100vh', minHeight: '100vh' }}
+      className="relative w-full overflow-hidden flex items-center justify-center"
+    >
       {/* Background Layer */}
-      <div className="absolute inset-0">
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
         <Image
           src="/running-poster.webp"
           alt=""
@@ -20,7 +23,7 @@ export default function Hero({ videoPlaceholder }: Props) {
           priority
           placeholder="blur"
           blurDataURL={videoPlaceholder}
-          className="object-cover scale-110 grayscale contrast-125 brightness-110"
+          style={{ objectFit: 'cover', transform: 'scale(1.1)', filter: 'grayscale(100%) contrast(1.25) brightness(1.1)' }}
         />
         <video
           src="/running.webm"
@@ -28,9 +31,18 @@ export default function Hero({ videoPlaceholder }: Props) {
           loop
           muted
           playsInline
-          className="absolute inset-0 h-full w-full object-cover scale-110 grayscale contrast-125 brightness-110"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            transform: 'scale(1.1)',
+            filter: 'grayscale(100%) contrast(1.25) brightness(1.1)',
+          }}
         />
-        <div className="absolute inset-0 bg-white/60" />
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(255,255,255,0.6)' }} />
       </div>
 
       {/* Content */}
