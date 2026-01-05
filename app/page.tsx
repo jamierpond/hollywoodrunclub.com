@@ -159,16 +159,16 @@ const Schedule = () => (
           type="Speed / Hills"
           title="The Reservoir Loop"
           time="6:30 PM"
-          location="Lake Hollywood Park"
-          desc="3-5 miles. We mix it up between flat loops around the reservoir and hill repeats up towards the sign. Post-run drinks at The Bourgeois Pig."
+          location="The Oaks Gourmet"
+          desc="3-5 miles. We mix it up between flat loops around the reservoir and hill repeats up towards the sign."
         />
         <RunCard
           day="SATURDAY"
           type="Long Run"
-          title="Coffee & Canyons"
-          time="8:00 AM"
-          location="Franklin Village"
-          desc="6-10 miles. Exploring Griffith Park, Bronson Canyon, and the Observatory. Multiple pace groups (8:00 - 11:00 min/mi). Coffee included after."
+          title="Coming Soon"
+          time="TBD"
+          location="Meeting place up for discussion"
+          desc="Weekend long runs coming soon. Stay tuned for details."
         />
       </div>
     </div>
