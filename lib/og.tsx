@@ -12,7 +12,7 @@ export async function loadFont() {
 export function createOgResponse(element: React.ReactElement, fontData: ArrayBuffer) {
   return new ImageResponse(element, {
     ...OG_SIZE,
-    fonts: [{ name: "Geist", data: fontData, style: "normal", weight: 700 }],
+    fonts: [{ name: "Inter", data: fontData, style: "normal", weight: 900 }],
   });
 }
 
