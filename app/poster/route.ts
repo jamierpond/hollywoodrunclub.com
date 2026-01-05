@@ -132,7 +132,7 @@ function buildHtml({ qrSvg, route }: PosterData) {
       display: grid;
       grid-template-columns: 1fr 1fr auto auto;
       gap: 48px;
-      align-items: end;
+      align-items: start;
     }
 
     .footer-block {}
