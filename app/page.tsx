@@ -157,10 +157,10 @@ const Schedule = () => (
         <RunCard
           day="TUESDAY"
           type="Speed / Hills"
-          title="The Reservoir Loop"
+          title="Sign Loop"
           time="6:30 PM"
           location="The Oaks Gourmet"
-          desc="3-5 miles. We mix it up between flat loops around the reservoir and hill repeats up towards the sign."
+          desc="3-5 miles through the Hollywood Hills. We'll finish with drinks outside at The Oaks Gourmet."
         />
         <RunCard
           day="SATURDAY"
