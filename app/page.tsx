@@ -6,20 +6,7 @@ import Schedule from '@/components/Schedule';
 import Vibe from '@/components/Vibe';
 import Footer from '@/components/Footer';
 import { VIDEO_BLUR_PLACEHOLDER } from '@/lib/constants';
-import { getRoute, type StravaRoute } from '@/lib/strava';
-
-export const metadata: Metadata = {
-  title: 'Hollywood Run Club | Run the Hills',
-  description: 'The premier running community in Hollywood, CA. Weekly runs through the Hollywood Hills. All paces welcome. Join the movement.',
-  openGraph: {
-    title: 'Hollywood Run Club',
-    description: 'Community. Fitness. Fun. Every Tuesday.',
-    url: 'https://hollywoodrunclub.com',
-    siteName: 'Hollywood Run Club',
-    locale: 'en_US',
-    type: 'website',
-  },
-};
+import { getRoute, formatDistance, formatElevation, type StravaRoute } from '@/lib/strava';
 
 async function fetchRoute(): Promise<StravaRoute | null> {
   const routeId = process.env.STRAVA_ROUTE_ID;
@@ -30,6 +17,33 @@ async function fetchRoute(): Promise<StravaRoute | null> {
   } catch {
     return null;
   }
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const route = await fetchRoute();
+
+  const distance = route ? formatDistance(route.distance) : '~7 mi';
+  const elevation = route ? formatElevation(route.elevation_gain) : '~1000 ft';
+
+  const description = `${distance} / ${elevation} through Griffith Park. Every Tuesday 6:30 PM. All paces welcome—just show up.`;
+
+  return {
+    title: 'Hollywood Run Club | Run the Hills',
+    description,
+    openGraph: {
+      title: 'Hollywood Run Club',
+      description,
+      url: 'https://hollywoodrunclub.com',
+      siteName: 'Hollywood Run Club',
+      locale: 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Hollywood Run Club',
+      description,
+    },
+  };
 }
 
 export default async function Page() {
