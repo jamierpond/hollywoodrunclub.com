@@ -10,41 +10,27 @@ const MarqueeBanner = () => {
   const text = "HOLLYWOOD RUN CLUB • EVERY TUESDAY 6:30PM • ALL PACES WELCOME • ";
 
   return (
-    <div className="absolute bottom-0 left-0 right-0 py-4 bg-black overflow-hidden z-20">
-      <div className="marquee-track">
-        <span className="marquee-content">
+    <div
+      className="absolute bottom-0 left-0 right-0 bg-black z-20"
+      style={{ height: '56px', overflow: 'hidden' }}
+    >
+      <div
+        className="flex animate-marquee"
+        style={{ width: 'fit-content', paddingTop: '16px', paddingBottom: '16px' }}
+      >
+        <span
+          className="text-white font-black text-xl sm:text-2xl uppercase tracking-wide"
+          style={{ flexShrink: 0, whiteSpace: 'nowrap', paddingRight: '2rem' }}
+        >
           {text}{text}{text}{text}
         </span>
-        <span className="marquee-content">
+        <span
+          className="text-white font-black text-xl sm:text-2xl uppercase tracking-wide"
+          style={{ flexShrink: 0, whiteSpace: 'nowrap', paddingRight: '2rem' }}
+        >
           {text}{text}{text}{text}
         </span>
       </div>
-      <style jsx>{`
-        .marquee-track {
-          display: flex;
-          width: fit-content;
-          animation: scroll 60s linear infinite;
-        }
-        .marquee-content {
-          flex-shrink: 0;
-          white-space: nowrap;
-          font-size: 1.25rem;
-          font-weight: 900;
-          color: white;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-          padding: 0 1rem;
-        }
-        @media (min-width: 640px) {
-          .marquee-content {
-            font-size: 1.5rem;
-          }
-        }
-        @keyframes scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-      `}</style>
     </div>
   );
 };
@@ -75,7 +61,7 @@ export default function Hero() {
         <div
           className={`absolute inset-0 transition-opacity duration-500 ${loadState !== 'blur' ? 'opacity-0' : 'opacity-100'}`}
           style={{
-            backgroundImage: `url(${BLUR_PLACEHOLDER})`,
+            backgroundImage: `url(${VIDEO_BLUR_PLACEHOLDER})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             filter: 'blur(20px)',
