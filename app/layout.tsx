@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description: "Los Angeles' best free run club. Weekly runs through Griffith Park every Tuesday at 6:30 PM. All paces welcome. Join LA's friendliest running community.",
   applicationName: "Hollywood Run Club",
   metadataBase: new URL("https://hollywoodrunclub.com"),
-  keywords: ["los angeles run club", "la run club", "best run club los angeles", "hollywood run club", "griffith park running", "la running group", "free run club la", "running club near me", "los angeles running"],
+  keywords: ["los angeles run club", "la run club", "best run club los angeles", "hollywood run club", "hollywood running group", "los feliz run club", "los feliz running", "griffith park running", "griffith park run club", "la running group", "free run club la", "running club near me", "los angeles running", "silver lake run club", "east hollywood running", "echo park running"],
   openGraph: {
     title: "Hollywood Run Club | Best Run Club in Los Angeles",
     description: "Los Angeles' best free run club. Weekly runs through Griffith Park every Tuesday at 6:30 PM. All paces welcome.",

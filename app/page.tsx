@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Hollywood Run Club | Best LA Run Club | Los Angeles Running Group',
     description,
-    keywords: ['los angeles run club', 'la run club', 'best run club los angeles', 'hollywood run club', 'griffith park running', 'la running group', 'free run club la'],
+    keywords: ['los angeles run club', 'la run club', 'best run club los angeles', 'hollywood run club', 'hollywood running group', 'los feliz run club', 'los feliz running', 'griffith park running', 'griffith park run club', 'la running group', 'free run club la', 'silver lake run club', 'east hollywood running'],
     openGraph: {
       title: 'Hollywood Run Club | Best Run Club in Los Angeles',
       description,
