@@ -14,16 +14,16 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Hollywood Run Club | Best LA Run Club | Los Angeles Running Group",
+    default: "Hollywood Run Club | Los Angeles",
     template: "%s | Hollywood Run Club",
   },
-  description: "Los Angeles' best free run club. Weekly runs through Griffith Park every Tuesday at 6:30 PM. All paces welcome. Join LA's friendliest running community.",
+  description: "Free weekly runs through Griffith Park. Every Tuesday at 6:30 PM. All paces welcome.",
   applicationName: "Hollywood Run Club",
   metadataBase: new URL("https://hollywoodrunclub.com"),
-  keywords: ["los angeles run club", "la run club", "best run club los angeles", "hollywood run club", "hollywood running group", "los feliz run club", "los feliz running", "griffith park running", "griffith park run club", "la running group", "free run club la", "running club near me", "los angeles running", "silver lake run club", "east hollywood running", "echo park running"],
+  keywords: ["los angeles run club", "la run club", "hollywood run club", "hollywood running group", "los feliz run club", "los feliz running", "griffith park running", "griffith park run club", "la running group", "free run club la", "running club near me", "los angeles running", "silver lake run club", "east hollywood running", "echo park running"],
   openGraph: {
-    title: "Hollywood Run Club | Best Run Club in Los Angeles",
-    description: "Los Angeles' best free run club. Weekly runs through Griffith Park every Tuesday at 6:30 PM. All paces welcome.",
+    title: "Hollywood Run Club",
+    description: "Free weekly runs through Griffith Park. Every Tuesday at 6:30 PM. All paces welcome.",
     url: "https://hollywoodrunclub.com",
     siteName: "Hollywood Run Club",
     locale: "en_US",
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hollywood Run Club | Best LA Run Club",
-    description: "Los Angeles' best free run club. Weekly runs through Griffith Park every Tuesday at 6:30 PM. All paces welcome.",
+    title: "Hollywood Run Club",
+    description: "Free weekly runs through Griffith Park. Every Tuesday at 6:30 PM. All paces welcome.",
   },
   appleWebApp: {
     title: "Hollywood Run Club",

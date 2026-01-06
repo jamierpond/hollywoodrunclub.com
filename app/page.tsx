@@ -28,14 +28,14 @@ export async function generateMetadata(): Promise<Metadata> {
   const distance = route ? formatDistance(route.distance) : '~7 mi';
   const elevation = route ? formatElevation(route.elevation_gain) : '~1000 ft';
 
-  const description = `${distance} / ${elevation} through Griffith Park. Los Angeles' best free run club meets every Tuesday at 6:30 PM. All paces welcome—just show up.`;
+  const description = `${distance} / ${elevation} through Griffith Park. Free weekly runs in Los Angeles, every Tuesday at 6:30 PM. All paces welcome.`;
 
   return {
-    title: 'Hollywood Run Club | Best LA Run Club | Los Angeles Running Group',
+    title: 'Hollywood Run Club | Los Angeles',
     description,
-    keywords: ['los angeles run club', 'la run club', 'best run club los angeles', 'hollywood run club', 'hollywood running group', 'los feliz run club', 'los feliz running', 'griffith park running', 'griffith park run club', 'la running group', 'free run club la', 'silver lake run club', 'east hollywood running'],
+    keywords: ['los angeles run club', 'la run club', 'hollywood run club', 'hollywood running group', 'los feliz run club', 'los feliz running', 'griffith park running', 'griffith park run club', 'la running group', 'free run club la', 'silver lake run club', 'east hollywood running'],
     openGraph: {
-      title: 'Hollywood Run Club | Best Run Club in Los Angeles',
+      title: 'Hollywood Run Club',
       description,
       url: 'https://hollywoodrunclub.com',
       siteName: 'Hollywood Run Club',
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Hollywood Run Club | Best LA Run Club',
+      title: 'Hollywood Run Club',
       description,
     },
   };
