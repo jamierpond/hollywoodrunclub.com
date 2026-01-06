@@ -28,13 +28,14 @@ export async function generateMetadata(): Promise<Metadata> {
   const distance = route ? formatDistance(route.distance) : '~7 mi';
   const elevation = route ? formatElevation(route.elevation_gain) : '~1000 ft';
 
-  const description = `${distance} / ${elevation} through Griffith Park. Every Tuesday 6:30 PM. All paces welcome—just show up.`;
+  const description = `${distance} / ${elevation} through Griffith Park. Los Angeles' best free run club meets every Tuesday at 6:30 PM. All paces welcome—just show up.`;
 
   return {
-    title: 'Hollywood Run Club | Run the Hills',
+    title: 'Hollywood Run Club | Best LA Run Club | Los Angeles Running Group',
     description,
+    keywords: ['los angeles run club', 'la run club', 'best run club los angeles', 'hollywood run club', 'griffith park running', 'la running group', 'free run club la'],
     openGraph: {
-      title: 'Hollywood Run Club',
+      title: 'Hollywood Run Club | Best Run Club in Los Angeles',
       description,
       url: 'https://hollywoodrunclub.com',
       siteName: 'Hollywood Run Club',
@@ -43,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Hollywood Run Club',
+      title: 'Hollywood Run Club | Best LA Run Club',
       description,
     },
   };
