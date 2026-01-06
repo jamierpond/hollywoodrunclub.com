@@ -28,11 +28,12 @@ export async function generateMetadata(): Promise<Metadata> {
   const distance = route ? formatDistance(route.distance) : '~7 mi';
   const elevation = route ? formatElevation(route.elevation_gain) : '~1000 ft';
 
-  const description = `${distance} / ${elevation} through Griffith Park. Every Tuesday 6:30 PM. All paces welcome—just show up.`;
+  const description = `${distance} / ${elevation} through Griffith Park. Free weekly runs in Los Angeles, every Tuesday at 6:30 PM. All paces welcome.`;
 
   return {
-    title: 'Hollywood Run Club | Run the Hills',
+    title: 'Hollywood Run Club | Los Angeles',
     description,
+    keywords: ['los angeles run club', 'la run club', 'hollywood run club', 'hollywood running group', 'los feliz run club', 'los feliz running', 'griffith park running', 'griffith park run club', 'la running group', 'free run club la', 'silver lake run club', 'east hollywood running'],
     openGraph: {
       title: 'Hollywood Run Club',
       description,
