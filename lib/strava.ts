@@ -21,6 +21,13 @@ export interface StravaRoute {
   };
 }
 
+export interface FormattedRouteData {
+  distance: string;
+  elevation: string;
+  time: string;
+  pace: string;
+}
+
 interface TokenResponse {
   access_token: string;
   refresh_token: string;
@@ -55,7 +62,7 @@ async function refreshAccessToken(): Promise<string> {
   return data.access_token;
 }
 
-export async function getRoute(routeId: string): Promise<StravaRoute> {
+async function getRouteById(routeId: string): Promise<StravaRoute> {
   const accessToken = await refreshAccessToken();
 
   const res = await fetch(`${STRAVA_API}/routes/${routeId}`, {
@@ -69,34 +76,49 @@ export async function getRoute(routeId: string): Promise<StravaRoute> {
   return res.json();
 }
 
-// Format seconds to "X hr Y min" or "Y min"
+/** Fetch route using STRAVA_ROUTE_ID env var. Returns null on error. */
+export async function fetchRoute(): Promise<StravaRoute | null> {
+  const routeId = process.env.STRAVA_ROUTE_ID;
+  if (!routeId) return null;
+  try {
+    return await getRouteById(routeId);
+  } catch {
+    return null;
+  }
+}
+
+/** Get formatted route data for display. Returns null if route unavailable. */
+export async function getFormattedRouteData(): Promise<FormattedRouteData | null> {
+  const route = await fetchRoute();
+  if (!route) return null;
+
+  return {
+    distance: formatDistance(route.distance),
+    elevation: formatElevation(route.elevation_gain),
+    time: formatDuration(route.estimated_moving_time),
+    pace: formatPace(route.distance, route.estimated_moving_time),
+  };
+}
+
+// Formatters
+
 export function formatDuration(seconds: number): string {
   const hrs = Math.floor(seconds / 3600);
   const mins = Math.floor((seconds % 3600) / 60);
-
-  if (hrs > 0) {
-    return `${hrs}h ${mins}m`;
-  }
-  return `${mins} min`;
+  return hrs > 0 ? `${hrs}h ${mins}m` : `${mins} min`;
 }
 
-// Format meters to miles
 export function formatDistance(meters: number): string {
-  const miles = meters / 1609.34;
-  return `${miles.toFixed(1)} mi`;
+  return `${(meters / 1609.34).toFixed(1)} mi`;
 }
 
-// Format elevation gain to feet
 export function formatElevation(meters: number): string {
-  const feet = meters * 3.28084;
-  return `${Math.round(feet)} ft`;
+  return `${Math.round(meters * 3.28084)} ft`;
 }
 
-// Calculate pace from distance and time
 export function formatPace(distanceMeters: number, timeSeconds: number): string {
   if (distanceMeters === 0 || timeSeconds === 0) return "N/A";
-  const miles = distanceMeters / 1609.34;
-  const secondsPerMile = timeSeconds / miles;
+  const secondsPerMile = (timeSeconds / distanceMeters) * 1609.34;
   const mins = Math.floor(secondsPerMile / 60);
   const secs = Math.round(secondsPerMile % 60);
   return `${mins}:${secs.toString().padStart(2, "0")}/mi`;
