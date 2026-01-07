@@ -19,10 +19,9 @@ import QRCode from "qrcode";
 import { readFileSync } from "fs";
 import { join } from "path";
 import {
-  getRoute,
+  fetchRoute,
   formatDuration,
   formatDistance,
-  formatPace,
   formatElevation,
   type StravaRoute,
 } from "@/lib/strava";

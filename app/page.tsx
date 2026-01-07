@@ -6,20 +6,10 @@ import Schedule from '@/components/Schedule';
 import Vibe from '@/components/Vibe';
 import Footer from '@/components/Footer';
 import { VIDEO_BLUR_PLACEHOLDER } from '@/lib/constants';
-import { getRoute, formatDistance, formatElevation, type StravaRoute } from '@/lib/strava';
+import { fetchRoute, formatDistance, formatElevation } from '@/lib/strava';
 
 export const dynamic = 'force-static';
 export const revalidate = 3600;
-
-async function fetchRoute(): Promise<StravaRoute | null> {
-  const routeId = process.env.STRAVA_ROUTE_ID;
-  if (!routeId) return null;
-  try {
-    return await getRoute(routeId);
-  } catch {
-    return null;
-  }
-}
 
 export async function generateMetadata(): Promise<Metadata> {
   const route = await fetchRoute();
