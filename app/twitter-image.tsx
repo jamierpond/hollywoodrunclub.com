@@ -11,11 +11,10 @@ export default async function Image() {
 
   let routeData = null;
   const routeId = process.env.STRAVA_ROUTE_ID;
-  const accessToken = process.env.STRAVA_ACCESS_TOKEN;
 
-  if (routeId && accessToken) {
+  if (routeId) {
     try {
-      const route = await getRoute(routeId, accessToken);
+      const route = await getRoute(routeId);
       routeData = {
         distance: formatDistance(route.distance),
         elevation: formatElevation(route.elevation_gain),

@@ -5,17 +5,16 @@ export const revalidate = 3600;
 
 export async function GET() {
   const routeId = process.env.STRAVA_ROUTE_ID;
-  const accessToken = process.env.STRAVA_ACCESS_TOKEN;
 
-  if (!routeId || !accessToken) {
+  if (!routeId) {
     return Response.json(
-      { error: "Missing STRAVA_ROUTE_ID or STRAVA_ACCESS_TOKEN" },
+      { error: "Missing STRAVA_ROUTE_ID" },
       { status: 500 }
     );
   }
 
   try {
-    const route = await getRoute(routeId, accessToken);
+    const route = await getRoute(routeId);
 
     return Response.json({
       id: route.id,

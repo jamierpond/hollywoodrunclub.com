@@ -311,14 +311,13 @@ export async function GET() {
     color: { dark: "#0a0a0a", light: "#ffffff00" },
   });
 
-  // Fetch Strava route if credentials are configured
+  // Fetch Strava route if configured
   let route: StravaRoute | null = null;
   const routeId = process.env.STRAVA_ROUTE_ID;
-  const accessToken = process.env.STRAVA_ACCESS_TOKEN;
 
-  if (routeId && accessToken) {
+  if (routeId) {
     try {
-      route = await getRoute(routeId, accessToken);
+      route = await getRoute(routeId);
     } catch (err) {
       console.error("Failed to fetch Strava route:", err);
     }

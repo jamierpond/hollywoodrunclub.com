@@ -13,10 +13,9 @@ export const revalidate = 3600;
 
 async function fetchRoute(): Promise<StravaRoute | null> {
   const routeId = process.env.STRAVA_ROUTE_ID;
-  const accessToken = process.env.STRAVA_ACCESS_TOKEN;
-  if (!routeId || !accessToken) return null;
+  if (!routeId) return null;
   try {
-    return await getRoute(routeId, accessToken);
+    return await getRoute(routeId);
   } catch {
     return null;
   }
