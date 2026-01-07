@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const distance = route ? formatDistance(route.distance) : '~7 mi';
   const elevation = route ? formatElevation(route.elevation_gain) : '~1000 ft';
 
-  const description = `${distance} / ${elevation} through Griffith Park. Free weekly runs in Los Angeles, every Tuesday at 6:30 PM. All paces welcome.`;
+  const description = `${distance} / ${elevation} through Griffith Park. Free weekly runs in Los Angeles, every Tuesday at 6:30 PM. Everyone welcome.`;
 
   return {
     title: 'Hollywood Run Club | Los Angeles',

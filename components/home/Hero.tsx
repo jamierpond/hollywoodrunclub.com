@@ -76,7 +76,7 @@ export default function Hero({ videoPlaceholder }: Props) {
           >
             Free weekly runs through Griffith Park.
             <br />
-            All paces welcome.
+            Everyone welcome.
           </motion.p>
         </div>
 

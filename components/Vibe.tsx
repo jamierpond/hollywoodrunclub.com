@@ -83,7 +83,7 @@ export default function Vibe() {
             transition={{ duration: 0.6 }}
           >
             <div className="text-6xl font-black mb-4">01</div>
-            <h3 className="text-xl font-black mb-3 uppercase tracking-tight">All Paces Welcome</h3>
+            <h3 className="text-xl font-black mb-3 uppercase tracking-tight">Everyone Welcome</h3>
             <p className="text-black/60 leading-relaxed">
               Whether you&apos;re training for a marathon or just starting out, you belong here. We regroup throughout the run.
             </p>
