@@ -310,17 +310,7 @@ export async function GET() {
     color: { dark: "#0a0a0a", light: "#ffffff00" },
   });
 
-  // Fetch Strava route if configured
-  let route: StravaRoute | null = null;
-  const routeId = process.env.STRAVA_ROUTE_ID;
-
-  if (routeId) {
-    try {
-      route = await getRoute(routeId);
-    } catch (err) {
-      console.error("Failed to fetch Strava route:", err);
-    }
-  }
+  const route = await fetchRoute();
 
   const browser = await getBrowser();
   const page = await browser.newPage();
