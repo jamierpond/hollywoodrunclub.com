@@ -5,6 +5,7 @@ export const SITE = {
   title: 'Hollywood Run Club | Los Angeles',
   description: 'Weekly group runs through Griffith Park, Los Angeles. Tuesdays at 6:30 PM.',
   url: 'https://hollywoodrunclub.com',
+  instagram: 'https://www.instagram.com/hollywood.run.club/',
   locale: 'en_US',
   keywords: [
     'los angeles run club',

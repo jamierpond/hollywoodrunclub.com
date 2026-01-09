@@ -1,3 +1,5 @@
+import { SITE } from '@/lib/constants';
+
 export default function Footer() {
   return (
     <footer className="bg-black text-white">
@@ -33,7 +35,7 @@ export default function Footer() {
                 Strava
               </a>
               <a
-                href="https://instagram.com"
+                href={SITE.instagram}
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-white/60 transition-colors"
