@@ -18,7 +18,7 @@ export default async function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#000",
+          background: "red",
         }}
       >
         <span
@@ -27,8 +27,10 @@ export default async function AppleIcon() {
             fontFamily: "Inter",
             fontWeight: 900,
             color: "#fff",
-            letterSpacing: "-0.06em",
-            marginTop: "-6px",
+            lineHeight: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           H
