@@ -25,8 +25,10 @@ export async function generateIcon(size = 256) {
             fontFamily: "Inter",
             fontWeight: 900,
             color: "#fff",
-            letterSpacing: "-0.06em",
-            marginTop: `${Math.round(size * -0.03)}px`,
+            lineHeight: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           H
