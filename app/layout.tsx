@@ -16,28 +16,28 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Hollywood Run Club | Los Angeles",
-    template: "%s | Hollywood Run Club",
+    default: SITE.title,
+    template: `%s | ${SITE.name}`,
   },
-  description: "Weekly group runs through Griffith Park, Los Angeles. Tuesdays at 6:30 PM.",
-  applicationName: "Hollywood Run Club",
-  metadataBase: new URL("https://hollywoodrunclub.com"),
-  keywords: ["los angeles run club", "la run club", "hollywood run club", "hollywood running group", "los feliz run club", "los feliz running", "griffith park running", "griffith park run club", "la running group", "free run club la", "running club near me", "los angeles running", "silver lake run club", "east hollywood running", "echo park running"],
+  description: SITE.description,
+  applicationName: SITE.name,
+  metadataBase: new URL(SITE.url),
+  keywords: SITE.keywords,
   openGraph: {
-    title: "Hollywood Run Club",
-    description: "Weekly group runs through Griffith Park, Los Angeles. Tuesdays at 6:30 PM.",
-    url: "https://hollywoodrunclub.com",
-    siteName: "Hollywood Run Club",
-    locale: "en_US",
+    title: SITE.name,
+    description: SITE.description,
+    url: SITE.url,
+    siteName: SITE.name,
+    locale: SITE.locale,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hollywood Run Club",
-    description: "Weekly group runs through Griffith Park, Los Angeles. Tuesdays at 6:30 PM.",
+    title: SITE.name,
+    description: SITE.description,
   },
   appleWebApp: {
-    title: "Hollywood Run Club",
+    title: SITE.name,
     capable: true,
     statusBarStyle: "black-translucent",
   },
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     apple: "/apple-icon",
   },
   alternates: {
-    canonical: "https://hollywoodrunclub.com",
+    canonical: SITE.url,
   },
 };
 
