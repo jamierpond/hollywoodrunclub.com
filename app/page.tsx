@@ -6,18 +6,13 @@ import Schedule from '@/components/Schedule';
 import Vibe from '@/components/Vibe';
 import Footer from '@/components/Footer';
 import { VIDEO_BLUR_PLACEHOLDER } from '@/lib/constants';
-import { fetchRoute, formatDistance, formatElevation } from '@/lib/strava';
+import { fetchRoute } from '@/lib/strava';
 
 export const dynamic = 'force-static';
 export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
-  const route = await fetchRoute();
-
-  const distance = route ? formatDistance(route.distance) : '~7 mi';
-  const elevation = route ? formatElevation(route.elevation_gain) : '~1000 ft';
-
-  const description = `${distance} / ${elevation} through Griffith Park. Free weekly runs in Los Angeles, every Tuesday at 6:30 PM. Everyone welcome.`;
+  const description = 'Weekly group runs through Griffith Park, Los Angeles. Tuesdays at 6:30 PM.';
 
   return {
     title: 'Hollywood Run Club | Los Angeles',
