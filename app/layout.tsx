@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description: SITE.description,
   applicationName: SITE.name,
   metadataBase: new URL(SITE.url),
-  keywords: SITE.keywords,
+  keywords: [...SITE.keywords],
   openGraph: {
     title: SITE.name,
     description: SITE.description,
